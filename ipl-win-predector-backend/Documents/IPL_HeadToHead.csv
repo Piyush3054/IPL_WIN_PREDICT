@@ -1,0 +1,157 @@
+﻿Team1,Team2,Team1Wins,Team2Wins,Matches
+Chennai Super Kings,Delhi Capitals,19,10,29
+Chennai Super Kings,Gujarat Titans,2,3,5
+Chennai Super Kings,Kolkata Knight Riders,18,10,29
+Chennai Super Kings,Lucknow Super Giants,1,1,3
+Chennai Super Kings,Mumbai Indians,16,20,36
+Chennai Super Kings,Punjab Kings,15,13,28
+Chennai Super Kings,Rajasthan Royals,15,13,28
+Chennai Super Kings,Royal Challengers Bangalore,20,10,31
+Chennai Super Kings,Sunrisers Hyderabad,14,5,19
+Chennai Super Kings,Kochi Tuskers Kerala,1,1,2
+Chennai Super Kings,Pune Warriors,2,1,3
+Chennai Super Kings,Rising Pune Supergiants,0,0,0
+Delhi Capitals,Chennai Super Kings,10,19,29
+Delhi Capitals,Gujarat Titans,1,2,3
+Delhi Capitals,Kolkata Knight Riders,15,16,32
+Delhi Capitals,Lucknow Super Giants,0,3,3
+Delhi Capitals,Mumbai Indians,15,18,33
+Delhi Capitals,Punjab Kings,16,16,32
+Delhi Capitals,Rajasthan Royals,13,14,27
+Delhi Capitals,Royal Challengers Bangalore,11,18,30
+Delhi Capitals,Sunrisers Hyderabad,11,12,23
+Delhi Capitals,Kochi Tuskers Kerala,0,1,1
+Delhi Capitals,Pune Warriors,2,2,4
+Delhi Capitals,Rising Pune Supergiants,2,2,4
+Gujarat Titans,Chennai Super Kings,3,2,5
+Gujarat Titans,Delhi Capitals,2,1,3
+Gujarat Titans,Kolkata Knight Riders,2,1,3
+Gujarat Titans,Lucknow Super Giants,4,0,4
+Gujarat Titans,Mumbai Indians,2,2,4
+Gujarat Titans,Punjab Kings,2,1,3
+Gujarat Titans,Rajasthan Royals,4,1,5
+Gujarat Titans,Royal Challengers Bangalore,2,1,3
+Gujarat Titans,Sunrisers Hyderabad,2,1,3
+Gujarat Titans,Kochi Tuskers Kerala,0,0,0
+Gujarat Titans,Pune Warriors,2,0,2
+Gujarat Titans,Rising Pune Supergiants,0,0,0
+Kolkata Knight Riders,Chennai Super Kings,10,18,29
+Kolkata Knight Riders,Delhi Capitals,16,15,32
+Kolkata Knight Riders,Gujarat Titans,1,2,3
+Kolkata Knight Riders,Lucknow Super Giants,0,3,3
+Kolkata Knight Riders,Mumbai Indians,9,23,32
+Kolkata Knight Riders,Punjab Kings,21,11,32
+Kolkata Knight Riders,Rajasthan Royals,14,13,28
+Kolkata Knight Riders,Royal Challengers Bangalore,18,14,32
+Kolkata Knight Riders,Sunrisers Hyderabad,16,9,25
+Kolkata Knight Riders,Kochi Tuskers Kerala,0,1,1
+Kolkata Knight Riders,Pune Warriors,2,2,4
+Kolkata Knight Riders,Rising Pune Supergiants,3,1,4
+Lucknow Super Giants,Chennai Super Kings,1,1,3
+Lucknow Super Giants,Delhi Capitals,3,0,3
+Lucknow Super Giants,Gujarat Titans,0,4,4
+Lucknow Super Giants,Kolkata Knight Riders,3,0,3
+Lucknow Super Giants,Mumbai Indians,3,1,4
+Lucknow Super Giants,Punjab Kings,2,1,3
+Lucknow Super Giants,Rajasthan Royals,1,2,3
+Lucknow Super Giants,Royal Challengers Bangalore,1,3,4
+Lucknow Super Giants,Sunrisers Hyderabad,3,0,3
+Lucknow Super Giants,Kochi Tuskers Kerala,0,0,0
+Lucknow Super Giants,Pune Warriors,0,0,0
+Lucknow Super Giants,Rising Pune Supergiants,0,0,0
+Mumbai Indians,Chennai Super Kings,20,16,36
+Mumbai Indians,Delhi Capitals,18,15,33
+Mumbai Indians,Gujarat Titans,2,2,4
+Mumbai Indians,Kolkata Knight Riders,23,9,32
+Mumbai Indians,Lucknow Super Giants,1,3,4
+Mumbai Indians,Punjab Kings,16,15,31
+Mumbai Indians,Rajasthan Royals,15,12,28
+Mumbai Indians,Royal Challengers Bangalore,18,14,32
+Mumbai Indians,Sunrisers Hyderabad,12,9,21
+Mumbai Indians,Kochi Tuskers Kerala,0,1,1
+Mumbai Indians,Pune Warriors,3,4,7
+Mumbai Indians,Rising Pune Supergiants,2,4,6
+Punjab Kings,Chennai Super Kings,13,15,28
+Punjab Kings,Delhi Capitals,16,16,32
+Punjab Kings,Gujarat Titans,1,2,3
+Punjab Kings,Kolkata Knight Riders,11,21,32
+Punjab Kings,Lucknow Super Giants,1,2,3
+Punjab Kings,Mumbai Indians,15,16,31
+Punjab Kings,Rajasthan Royals,11,15,26
+Punjab Kings,Royal Challengers Bangalore,17,14,31
+Punjab Kings,Sunrisers Hyderabad,7,14,21
+Punjab Kings,Kochi Tuskers Kerala,1,0,1
+Punjab Kings,Pune Warriors,4,1,5
+Punjab Kings,Rising Pune Supergiants,2,2,4
+Rajasthan Royals,Chennai Super Kings,13,15,28
+Rajasthan Royals,Delhi Capitals,14,13,27
+Rajasthan Royals,Gujarat Titans,1,4,5
+Rajasthan Royals,Kolkata Knight Riders,13,14,28
+Rajasthan Royals,Lucknow Super Giants,2,1,3
+Rajasthan Royals,Mumbai Indians,12,15,28
+Rajasthan Royals,Punjab Kings,15,11,26
+Rajasthan Royals,Royal Challengers Bangalore,12,15,30
+Rajasthan Royals,Sunrisers Hyderabad,9,9,18
+Rajasthan Royals,Kochi Tuskers Kerala,1,0,1
+Rajasthan Royals,Pune Warriors,3,0,3
+Rajasthan Royals,Rising Pune Supergiants,0,0,0
+Royal Challengers Bangalore,Chennai Super Kings,10,20,31
+Royal Challengers Bangalore,Delhi Capitals,18,11,30
+Royal Challengers Bangalore,Gujarat Titans,1,2,3
+Royal Challengers Bangalore,Kolkata Knight Riders,14,18,32
+Royal Challengers Bangalore,Lucknow Super Giants,3,1,4
+Royal Challengers Bangalore,Mumbai Indians,14,18,32
+Royal Challengers Bangalore,Punjab Kings,14,17,31
+Royal Challengers Bangalore,Rajasthan Royals,15,12,30
+Royal Challengers Bangalore,Sunrisers Hyderabad,10,12,23
+Royal Challengers Bangalore,Kochi Tuskers Kerala,1,0,1
+Royal Challengers Bangalore,Pune Warriors,4,1,5
+Royal Challengers Bangalore,Rising Pune Supergiants,2,2,4
+Sunrisers Hyderabad,Chennai Super Kings,5,14,19
+Sunrisers Hyderabad,Delhi Capitals,12,11,23
+Sunrisers Hyderabad,Gujarat Titans,1,2,3
+Sunrisers Hyderabad,Kolkata Knight Riders,9,16,25
+Sunrisers Hyderabad,Lucknow Super Giants,0,3,3
+Sunrisers Hyderabad,Mumbai Indians,9,12,21
+Sunrisers Hyderabad,Punjab Kings,14,7,21
+Sunrisers Hyderabad,Rajasthan Royals,9,9,18
+Sunrisers Hyderabad,Royal Challengers Bangalore,12,10,23
+Sunrisers Hyderabad,Kochi Tuskers Kerala,0,0,0
+Sunrisers Hyderabad,Pune Warriors,2,3,5
+Sunrisers Hyderabad,Rising Pune Supergiants,1,3,4
+Kochi Tuskers Kerala,Chennai Super Kings,1,1,2
+Kochi Tuskers Kerala,Delhi Capitals,1,0,1
+Kochi Tuskers Kerala,Gujarat Titans,0,0,0
+Kochi Tuskers Kerala,Kolkata Knight Riders,1,0,1
+Kochi Tuskers Kerala,Lucknow Super Giants,0,0,0
+Kochi Tuskers Kerala,Mumbai Indians,1,0,1
+Kochi Tuskers Kerala,Punjab Kings,0,1,1
+Kochi Tuskers Kerala,Rajasthan Royals,0,1,1
+Kochi Tuskers Kerala,Royal Challengers Bangalore,0,1,1
+Kochi Tuskers Kerala,Sunrisers Hyderabad,0,0,0
+Kochi Tuskers Kerala,Pune Warriors,0,1,1
+Kochi Tuskers Kerala,Rising Pune Supergiants,0,0,0
+Pune Warriors,Chennai Super Kings,1,2,3
+Pune Warriors,Delhi Capitals,2,2,4
+Pune Warriors,Gujarat Titans,0,2,2
+Pune Warriors,Kolkata Knight Riders,2,2,4
+Pune Warriors,Lucknow Super Giants,0,0,0
+Pune Warriors,Mumbai Indians,4,3,7
+Pune Warriors,Punjab Kings,1,4,5
+Pune Warriors,Rajasthan Royals,0,3,3
+Pune Warriors,Royal Challengers Bangalore,1,4,5
+Pune Warriors,Sunrisers Hyderabad,3,2,5
+Pune Warriors,Kochi Tuskers Kerala,1,0,1
+Pune Warriors,Rising Pune Supergiants,0,0,0
+Rising Pune Supergiants,Chennai Super Kings,0,0,0
+Rising Pune Supergiants,Delhi Capitals,2,2,4
+Rising Pune Supergiants,Gujarat Titans,0,0,0
+Rising Pune Supergiants,Kolkata Knight Riders,1,3,4
+Rising Pune Supergiants,Lucknow Super Giants,0,0,0
+Rising Pune Supergiants,Mumbai Indians,4,2,6
+Rising Pune Supergiants,Punjab Kings,2,2,4
+Rising Pune Supergiants,Rajasthan Royals,0,0,0
+Rising Pune Supergiants,Royal Challengers Bangalore,2,2,4
+Rising Pune Supergiants,Sunrisers Hyderabad,3,1,4
+Rising Pune Supergiants,Kochi Tuskers Kerala,0,0,0
+Rising Pune Supergiants,Pune Warriors,0,0,0
