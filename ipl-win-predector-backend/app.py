@@ -285,6 +285,20 @@ def handle_live():
     currentRunRate = data['currentRunRate']
 
 
+    live_df = pd.DataFrame({'Team1':[selectedTeam1],'Team2':[selectedTeam2],'City':[venue],'TossWinner':[tossWinner],'TossDecision':[tossDecision],})
+    live_df['T1_P1'] = t1players[0]
+    live_df['T1_P2'] = t1players[1]
+    live_df['T1_P3'] = t1players[2]
+    live_df['T1_P4'] = t1players[3]
+    live_df['T1_P5'] = t1players[4]
+    live_df['T1_P6'] = t1players[5]
+    live_df['T1_P7'] = t1players[6]
+    live_df['T1_P8'] = t1players[7]
+    live_df['T1_P9'] = t1players[8]
+    live_df['T1_P10'] = t1players[9]
+    live_df['T1_P11'] = t1players[10]
+
+
 
 
 
