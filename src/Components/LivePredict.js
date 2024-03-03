@@ -25,15 +25,15 @@ export default function LivePredict() {
   const [team2, setTeam2] = React.useState("");
   const [tossWinner, setTossWinner] = React.useState("");
   const [restrict, setRestrict] = React.useState("");
-  const [selectedT1Players, setSelectedT1Players] = React.useState([]);
+  //const [selectedT1Players, setSelectedT1Players] = React.useState([]);
   const [showComponent, setShowComponent] = React.useState("");
   const [venue, setVanue] = React.useState("");
   const [tossDecision, setTossDecision] = React.useState("");
-  const [selectedT2Players, setSelectedT2Players] = React.useState([]);
+  // const [selectedT2Players, setSelectedT2Players] = React.useState([]);
   const [currentScore, setCurrentScore] = useState("");
-  const [ballLeft, setBallLeft] = useState("");
+  const [ballBowled, setBallBowled] = useState("");
   const [wicket, setWicket] = useState("");
-  const [currentRunRate, setCurrentRunRate] = useState("");
+  const [target, setTarget] = useState("");
 
   useEffect(() => {
     if (
@@ -42,14 +42,10 @@ export default function LivePredict() {
       tossWinner &&
       venue &&
       tossDecision &&
-      selectedT1Players.length >= 11 &&
-      selectedT1Players.length <= 11 &&
-      selectedT2Players.length >= 11 &&
-      selectedT2Players.length <= 11 &&
       currentScore &&
-      ballLeft &&
+      ballBowled &&
       wicket &&
-      currentRunRate
+      target
     ) {
       fetchData();
       console.log("aasd");
@@ -60,12 +56,10 @@ export default function LivePredict() {
     tossWinner,
     tossDecision,
     venue,
-    selectedT1Players,
-    selectedT2Players,
     currentScore,
-    ballLeft,
+    ballBowled,
     wicket,
-    currentRunRate
+    target
   ]);
 
   const handleChange1 = async (event) => {
@@ -88,12 +82,10 @@ export default function LivePredict() {
       tossWinner &&
       venue &&
       tossDecision &&
-      selectedT1Players.length === 11 &&
-      selectedT2Players.length === 11 &&
       currentScore &&
-      ballLeft &&
+      ballBowled &&
       wicket &&
-      currentRunRate
+      target
     ) {
       // Render the Result component
       setShowComponent("1");
@@ -108,13 +100,13 @@ export default function LivePredict() {
     setVanue(event.target.value);
   };
 
-  const handleChange6 = (event) => {
-    setSelectedT1Players(event.target.value);
-  };
+  // const handleChange6 = (event) => {
+  //   setSelectedT1Players(event.target.value);
+  // };
 
-  const handleChange7 = (event) => {
-    setSelectedT2Players(event.target.value);
-  };
+  // const handleChange7 = (event) => {
+  //   setSelectedT2Players(event.target.value);
+  // };
 
   const handleChange5 = (event) => {
     setTossDecision(event.target.value);
@@ -133,12 +125,10 @@ export default function LivePredict() {
           venue,
           tossWinner,
           tossDecision,
-          selectedT1Players,
-          selectedT2Players,
           currentScore,
-          ballLeft,
+          ballBowled,
           wicket,
-          currentRunRate,
+          target,
         }),
     });
 
@@ -230,152 +220,6 @@ return (
       </div>
     </div>
     <div className="main-venue">
-      <FormControl sx={{ minWidth: 150 }}>
-        <InputLabel id="demo-multiple-label">Team-1 Squad</InputLabel>
-        <Select
-          multiple
-          value={selectedT1Players}
-          onChange={handleChange6}
-          label="Team-1 Squad"
-        >
-          {team1 === "Chennai Super Kings"
-            ? csk_players.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))
-            : team1 === "Mumbai Indians"
-              ? mi_players.map((name) => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))
-              : team1 === "Royal Challengers Bangalore"
-                ? rcb_players.map((name) => (
-                  <MenuItem key={name} value={name}>
-                    {name}
-                  </MenuItem>
-                ))
-                : team1 === "Kolkata Knight Riders"
-                  ? kkr_players.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))
-                  : team1 === "Rajasthan Royals"
-                    ? rr_players.map((name) => (
-                      <MenuItem key={name} value={name}>
-                        {name}
-                      </MenuItem>
-                    ))
-                    : team1 === "Gujarat Titans"
-                      ? gt_players.map((name) => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))
-                      : team1 === "Lucknow Super Giants"
-                        ? lsg_players.map((name) => (
-                          <MenuItem key={name} value={name}>
-                            {name}
-                          </MenuItem>
-                        ))
-                        : team1 === "Sunrisers Hyderabad"
-                          ? srh_players.map((name) => (
-                            <MenuItem key={name} value={name}>
-                              {name}
-                            </MenuItem>
-                          ))
-                          : team1 === "Delhi Capitals"
-                            ? dc_players.map((name) => (
-                              <MenuItem key={name} value={name}>
-                                {name}
-                              </MenuItem>
-                            ))
-                            : team1 === "Punjab Kings"
-                              ? pk_players.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                  {name}
-                                </MenuItem>
-                              ))
-                              : null}
-        </Select>
-      </FormControl>
-    </div>
-    <div className="main-venue">
-      <FormControl sx={{ minWidth: 150 }}>
-        <InputLabel id="demo-multiple-name-label">Team-2 Squad</InputLabel>
-        <Select
-          label="Team-2 Squad"
-          multiple
-          value={selectedT2Players}
-          onChange={handleChange7}
-        >
-          {team2 === "Chennai Super Kings"
-            ? csk_players.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))
-            : team2 === "Mumbai Indians"
-              ? mi_players.map((name) => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))
-              : team2 === "Royal Challengers Bangalore"
-                ? rcb_players.map((name) => (
-                  <MenuItem key={name} value={name}>
-                    {name}
-                  </MenuItem>
-                ))
-                : team2 === "Kolkata Knight Riders"
-                  ? kkr_players.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))
-                  : team2 === "Rajasthan Royals"
-                    ? rr_players.map((name) => (
-                      <MenuItem key={name} value={name}>
-                        {name}
-                      </MenuItem>
-                    ))
-                    : team2 === "Gujarat Titans"
-                      ? gt_players.map((name) => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))
-                      : team2 === "Lucknow Super Giants"
-                        ? lsg_players.map((name) => (
-                          <MenuItem key={name} value={name}>
-                            {name}
-                          </MenuItem>
-                        ))
-                        : team2 === "Sunrisers Hyderabad"
-                          ? srh_players.map((name) => (
-                            <MenuItem key={name} value={name}>
-                              {name}
-                            </MenuItem>
-                          ))
-                          : team2 === "Delhi Capitals"
-                            ? dc_players.map((name) => (
-                              <MenuItem key={name} value={name}>
-                                {name}
-                              </MenuItem>
-                            ))
-                            : team2 === "Punjab Kings"
-                              ? pk_players.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                  {name}
-                                </MenuItem>
-                              ))
-                              : null}
-        </Select>
-      </FormControl>
-    </div>
-    <div className="main-venue">
       <FormControl sx={{ minWidth: 120 }}>
         <InputLabel id="demo-simple-select-autowidth-label">City</InputLabel>
         <Select value={venue} onChange={handleChange3} label="City">
@@ -444,14 +288,14 @@ return (
 
     </div>
     <div style={{ marginLeft: "9.8vw", marginTop: "5px" }}>
-      <TextField id="outlined-basic" label="Current Score" value={currentScore} onChange={(e) => { setCurrentScore(e.target.value) }} variant="outlined" style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" label="Ball Left" variant="outlined" value={ballLeft} onChange={(e) => { setBallLeft(e.target.value) }} style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" label="Wickets" variant="outlined" value={wicket} onChange={(e) => { setWicket(e.target.value) }} style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" label="Current RunRate" variant="outlined" value={currentRunRate} onChange={(e) => { setCurrentRunRate(e.target.value) }} style={{ marginRight: "5vw" }} />
+      <TextField id="outlined-basic" type="number" label="Current Score" value={currentScore} onChange={(e) => { setCurrentScore(e.target.value) }} variant="outlined" style={{ marginRight: "5vw" }} />
+      <TextField id="outlined-basic" type="number" label="Ball Bowled" variant="outlined" value={ballBowled} onChange={(e) => { setBallBowled(e.target.value) }} style={{ marginRight: "5vw" }} />
+      <TextField id="outlined-basic" type="number" label="Wickets" variant="outlined" value={wicket} onChange={(e) => { setWicket(e.target.value) }} style={{ marginRight: "5vw" }} />
+      <TextField id="outlined-basic" type="number" label="Target" variant="outlined" value={target} onChange={(e) => { setTarget(e.target.value) }} style={{ marginRight: "5vw" }} />
     </div>
 
     <div className="main-action">
-      <button onClick={handleClick}>Predict</button>
+      <button onClick={handleClick} style={{marginTop:"5vh",marginBottom:"5vh"}}>Predict</button>
       {showComponent == 1 && team1 && team2 && (
         <Result
           team1={team1}
