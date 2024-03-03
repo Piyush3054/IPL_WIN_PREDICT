@@ -9,6 +9,7 @@ team_perfo = pd.read_csv(r"C:\Users\piyus\OneDrive\Desktop\Node JS Programs\ipl-
 player_perfo = pd.read_csv(r"C:\Users\piyus\OneDrive\Desktop\Node JS Programs\ipl-win-predector\ipl-win-predector-backend\Documents\IPL_PlayerPerformance.csv")
 head_to_head1 = pd.read_csv(r"C:\Users\piyus\OneDrive\Desktop\Node JS Programs\ipl-win-predector\ipl-win-predector-backend\Documents\IPL_HeadToHead.csv")
 pipe = pickle.load(open('pipe.pkl','rb'))
+pipe2 = pickle.load(open('pipe2.pkl','rb'))
 # pipe = pickle.load(open('new_pipe.pkl','rb'))
 # pipe = pickle.load(open('pippe.pkl','rb'))
 
@@ -209,16 +210,16 @@ def handle_post():
 
     input_df = input_df[['Team1','Team2','City','TossWinner','TossDecision','HomeGround','MatchNumer','BattingFirst','BowlingFirst','Team1BattingAverage', 'Team2BattingAverage', 'Team1BowlingAverage', 'Team2BowlingAverage', 'Team1StrikeRate', 'Team2StrikeRate', 'Team1EconomyRate', 'Team2EconomyRate', 'WinningPercentage_x', 'WinningPercentage_y','Team1WinPercent','Team2WinPercent']]  # Features (all columns except the target)
     result = pipe.predict_proba(input_df)
-    team2 = result[0][0]
-    team1 = result[0][1]
+    team2 = result[0][1]
+    team1 = result[0][0]
 
     print(team2)
     print(team1)
     print(input_df)
-    input_df.to_csv("C:\\Users\\piyus\\Downloads\\GTA V\\x.csv")
+    # input_df.to_csv("C:\\Users\\piyus\\Downloads\\GTA V\\x.csv")
 
     # Correct the return statement
-    return jsonify({'team1Result': team2,'team2Result': team1}), 200
+    return jsonify({'team1Result': team1,'team2Result': team2}), 200
 
 def battingfirst(row):
     if row['Team1'] == row['TossWinner']:
@@ -277,29 +278,72 @@ def handle_live():
     tossWinner = data['tossWinner']
     tossDecision = data['tossDecision']
     venue = data['venue']
-    t1players = data.get('selectedT1Players', [])
-    t2players = data.get('selectedT2Players', [])
     currentScore = data['currentScore']
-    ballLeft = data['ballLeft']
+    ballBowled = data['ballBowled']
     wicket = data['wicket']
-    currentRunRate = data['currentRunRate']
+    target = data['target']
 
+    target = int(target)
+    currentScore = int(currentScore)
+    runLeft = int(target - currentScore)
+    firstInningsRuns = target - 1
+    ballBowled = int(ballBowled)
+    ballLeft = 120 - ballBowled
+    wicket = int(wicket)
+    wicketLeft = 10 - wicket
+    overs = ballBowled/6
+    currentRunRate = float(currentScore/overs)
+    requiredRunRate = float((runLeft*6)/ballLeft)
 
-    live_df = pd.DataFrame({'Team1':[selectedTeam1],'Team2':[selectedTeam2],'City':[venue],'TossWinner':[tossWinner],'TossDecision':[tossDecision],})
-    live_df['T1_P1'] = t1players[0]
-    live_df['T1_P2'] = t1players[1]
-    live_df['T1_P3'] = t1players[2]
-    live_df['T1_P4'] = t1players[3]
-    live_df['T1_P5'] = t1players[4]
-    live_df['T1_P6'] = t1players[5]
-    live_df['T1_P7'] = t1players[6]
-    live_df['T1_P8'] = t1players[7]
-    live_df['T1_P9'] = t1players[8]
-    live_df['T1_P10'] = t1players[9]
-    live_df['T1_P11'] = t1players[10]
+    live_df = pd.DataFrame({'Team1':[selectedTeam1],'Team2':[selectedTeam2],'City':[venue],'TossWinner':[tossWinner],'TossDecision':[tossDecision],'FirstInningsRuns':[firstInningsRuns],'CurrentScoreSecond':[currentScore],'RunsLeft':[runLeft],'BallsLeftSecond':[ballLeft],'WicketsSecond':[wicket],'CurrentRunRateSecond':[currentRunRate],'RequiredRunRate':[requiredRunRate]})
 
+    live_df['BattingTeam'] = live_df.apply(battingfirst,axis=1)
+    live_df['BowlingTeam'] = live_df.apply(bowlingfirst,axis=1)
 
+    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='Team1',right_on='Team',how='left')
+    live_df.drop(['Team'],axis=1,inplace=True)
+    live_df.drop(['WinningPercentage'],axis=1,inplace=True)
 
+    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='Team2',right_on='Team',how='left')
+    live_df.drop(['Team'],axis=1,inplace=True)
+    live_df.drop(['WinningPercentage'],axis=1,inplace=True)
+
+    live_df['HomeGround'] = live_df.apply(HomeGround,axis=1)
+    live_df.drop(['HomeGround_x','HomeGround_y'],axis=1,inplace=True)
+
+    team_encoding = {'Chennai Super Kings':0,'Royal Challengers Bangalore':11,'Delhi Capitals':1,'Gujarat Titans':2,'Kochi Tuskers Kerala':3,'Kolkata Knight Riders':4,'Lucknow Super Giants':5,'Mumbai Indians':6,'Pune Warriors':7,'Rising Pune Supergiants':10,'Punjab Kings':8,'Rajasthan Royals':9,'Sunrisers Hyderabad':12}
+    live_df['Team1'] = live_df['Team1'].map(team_encoding)
+    live_df['Team2'] = live_df['Team2'].map(team_encoding)
+    live_df['TossWinner'] = live_df['TossWinner'].map(team_encoding)
+    
+
+    toss_encoding = {'Batting':0,'Bowling':1}
+    live_df['TossDecision'] = live_df['TossDecision'].map(toss_encoding)
+
+    city_encoding = {'Ahmedabad':1,'Mumbai':22,'Banglore':2,'Kolkata':21,'Pune':26,'Dubai':11,'Sharjah':30,'Abu Dhabi':0,'Delhi':9,'Cape Town':4,'Chennai':7,'Hydrabad':14,'Visakhapatnam':31,'Chandigarh':6,'Jaipur':16,'Bloemfontein':3,'Centorion':5,'Durban':12,'Cuttack':8,'Dharamsala':10,'East London':13,'Indore':15}
+    live_df['City'] = live_df['City'].map(city_encoding)
+
+    encoding = {'Team1':0,'Team2':1}
+    live_df['BattingTeam'] = live_df['BattingTeam'].map(encoding)
+    live_df['BowlingTeam'] = live_df['BowlingTeam'].map(encoding)
+    
+
+    home_encoding = {'Neutral':0,'Team1':1,'Team2':2}
+    live_df['HomeGround'] = live_df['HomeGround'].map(home_encoding)
+
+    live_df.to_csv("Documents/x.csv")
+
+    live_df = live_df[['Team1','Team2','City','TossWinner','TossDecision','HomeGround','BattingTeam','BowlingTeam','FirstInningsRuns','CurrentScoreSecond','RunsLeft','BallsLeftSecond','WicketsSecond','CurrentRunRateSecond','RequiredRunRate']]
+    result = pipe2.predict_proba(live_df)
+    team2 = result[0][1]
+    team1 = result[0][0]
+
+    print(team2)
+    print(team1)
+    print(live_df)
+
+    return jsonify({'team1Result': team1,'team2Result': team2}), 200
+    
 
 
 
