@@ -212,7 +212,7 @@ def handle_post():
     result = pipe.predict_proba(input_df)
     team2 = result[0][1]
     team1 = result[0][0]
-
+ 
     print(team2)
     print(team1)
     print(input_df)
@@ -275,8 +275,6 @@ def handle_live():
     data = request.get_json()
     selectedTeam1 = data['team1']
     selectedTeam2 = data['team2']
-    tossWinner = data['tossWinner']
-    tossDecision = data['tossDecision']
     venue = data['venue']
     currentScore = data['currentScore']
     ballBowled = data['ballBowled']
@@ -295,16 +293,13 @@ def handle_live():
     currentRunRate = float(currentScore/overs)
     requiredRunRate = float((runLeft*6)/ballLeft)
 
-    live_df = pd.DataFrame({'Team1':[selectedTeam1],'Team2':[selectedTeam2],'City':[venue],'TossWinner':[tossWinner],'TossDecision':[tossDecision],'FirstInningsRuns':[firstInningsRuns],'CurrentScoreSecond':[currentScore],'RunsLeft':[runLeft],'BallsLeftSecond':[ballLeft],'WicketsSecond':[wicket],'CurrentRunRateSecond':[currentRunRate],'RequiredRunRate':[requiredRunRate]})
+    live_df = pd.DataFrame({'BattingTeam':[selectedTeam1],'BowlingTeam':[selectedTeam2],'City':[venue],'FirstInningsRuns':[firstInningsRuns],'CurrentScore':[currentScore],'RunsLeft':[runLeft],'BallsLeft':[ballLeft],'WicketsLeft':[wicketLeft],'CurrentRunRate':[currentRunRate],'RequiredRunRate':[requiredRunRate]})
 
-    live_df['BattingTeam'] = live_df.apply(battingfirst,axis=1)
-    live_df['BowlingTeam'] = live_df.apply(bowlingfirst,axis=1)
-
-    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='Team1',right_on='Team',how='left')
+    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='BattingTeam',right_on='Team',how='left')
     live_df.drop(['Team'],axis=1,inplace=True)
     live_df.drop(['WinningPercentage'],axis=1,inplace=True)
 
-    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='Team2',right_on='Team',how='left')
+    live_df = pd.merge(live_df,team_perfo[['Team','HomeGround','WinningPercentage']],left_on='BowlingTeam',right_on='Team',how='left')
     live_df.drop(['Team'],axis=1,inplace=True)
     live_df.drop(['WinningPercentage'],axis=1,inplace=True)
 
@@ -312,20 +307,12 @@ def handle_live():
     live_df.drop(['HomeGround_x','HomeGround_y'],axis=1,inplace=True)
 
     team_encoding = {'Chennai Super Kings':0,'Royal Challengers Bangalore':11,'Delhi Capitals':1,'Gujarat Titans':2,'Kochi Tuskers Kerala':3,'Kolkata Knight Riders':4,'Lucknow Super Giants':5,'Mumbai Indians':6,'Pune Warriors':7,'Rising Pune Supergiants':10,'Punjab Kings':8,'Rajasthan Royals':9,'Sunrisers Hyderabad':12}
-    live_df['Team1'] = live_df['Team1'].map(team_encoding)
-    live_df['Team2'] = live_df['Team2'].map(team_encoding)
-    live_df['TossWinner'] = live_df['TossWinner'].map(team_encoding)
+    live_df['BattingTeam'] = live_df['BattingTeam'].map(team_encoding)
+    live_df['BowlingTeam'] = live_df['BowlingTeam'].map(team_encoding)
     
-
-    toss_encoding = {'Batting':0,'Bowling':1}
-    live_df['TossDecision'] = live_df['TossDecision'].map(toss_encoding)
 
     city_encoding = {'Ahmedabad':1,'Mumbai':22,'Banglore':2,'Kolkata':21,'Pune':26,'Dubai':11,'Sharjah':30,'Abu Dhabi':0,'Delhi':9,'Cape Town':4,'Chennai':7,'Hydrabad':14,'Visakhapatnam':31,'Chandigarh':6,'Jaipur':16,'Bloemfontein':3,'Centorion':5,'Durban':12,'Cuttack':8,'Dharamsala':10,'East London':13,'Indore':15}
     live_df['City'] = live_df['City'].map(city_encoding)
-
-    encoding = {'Team1':0,'Team2':1}
-    live_df['BattingTeam'] = live_df['BattingTeam'].map(encoding)
-    live_df['BowlingTeam'] = live_df['BowlingTeam'].map(encoding)
     
 
     home_encoding = {'Neutral':0,'Team1':1,'Team2':2}
@@ -333,10 +320,10 @@ def handle_live():
 
     live_df.to_csv("Documents/x.csv")
 
-    live_df = live_df[['Team1','Team2','City','TossWinner','TossDecision','HomeGround','BattingTeam','BowlingTeam','FirstInningsRuns','CurrentScoreSecond','RunsLeft','BallsLeftSecond','WicketsSecond','CurrentRunRateSecond','RequiredRunRate']]
+    live_df = live_df[['City','HomeGround','BattingTeam','BowlingTeam','FirstInningsRuns','CurrentScore','RunsLeft','BallsLeft','WicketsLeft','CurrentRunRate','RequiredRunRate']]
     result = pipe2.predict_proba(live_df)
-    team2 = result[0][1]
-    team1 = result[0][0]
+    team2 = result[0][0]
+    team1 = result[0][1]
 
     print(team2)
     print(team1)
@@ -344,8 +331,6 @@ def handle_live():
 
     return jsonify({'team1Result': team1,'team2Result': team2}), 200
     
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

@@ -1,2 +1,2 @@
-,Team1,Team2,City,TossWinner,TossDecision,FirstInningsRuns,CurrentScoreSecond,RunsLeft,BallsLeftSecond,WicketsSecond,CurrentRunRateSecond,RequiredRunRate,BattingTeam,BowlingTeam,HomeGround
-0,6,0,7,6,0,154,62,93,60,3,6.2,9.3,0,1,2
+,BattingTeam,BowlingTeam,City,FirstInningsRuns,CurrentScore,RunsLeft,BallsLeft,WicketsLeft,CurrentRunRate,RequiredRunRate,HomeGround
+0,4,6,21,239,190,50,22,3,11.63265306122449,13.636363636363637,1
