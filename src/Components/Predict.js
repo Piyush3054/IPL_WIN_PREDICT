@@ -221,6 +221,7 @@ export default function Predict() {
             value={selectedT1Players}
             onChange={handleChange6}
             label="Team-1 Squad"
+            
           >
             {team1 === "Chennai Super Kings"
               ? csk_players.map((name) => (

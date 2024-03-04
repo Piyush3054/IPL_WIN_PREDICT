@@ -23,13 +23,9 @@ let percentage1, percentage2;
 export default function LivePredict() {
   const [team1, setTeam1] = React.useState("");
   const [team2, setTeam2] = React.useState("");
-  const [tossWinner, setTossWinner] = React.useState("");
   const [restrict, setRestrict] = React.useState("");
-  //const [selectedT1Players, setSelectedT1Players] = React.useState([]);
   const [showComponent, setShowComponent] = React.useState("");
   const [venue, setVanue] = React.useState("");
-  const [tossDecision, setTossDecision] = React.useState("");
-  // const [selectedT2Players, setSelectedT2Players] = React.useState([]);
   const [currentScore, setCurrentScore] = useState("");
   const [ballBowled, setBallBowled] = useState("");
   const [wicket, setWicket] = useState("");
@@ -39,9 +35,7 @@ export default function LivePredict() {
     if (
       team1 &&
       team2 &&
-      tossWinner &&
       venue &&
-      tossDecision &&
       currentScore &&
       ballBowled &&
       wicket &&
@@ -53,8 +47,6 @@ export default function LivePredict() {
   }, [
     team1,
     team2,
-    tossWinner,
-    tossDecision,
     venue,
     currentScore,
     ballBowled,
@@ -71,26 +63,19 @@ export default function LivePredict() {
       setTeam2(event.target.value);
     }
   };
-  const handleChange4 = (event) => {
-    setTossWinner(event.target.value);
-  };
 
   const handleClick = () => {
     if (
       team1 &&
       team2 &&
-      tossWinner &&
       venue &&
-      tossDecision &&
       currentScore &&
       ballBowled &&
       wicket &&
       target
     ) {
-      // Render the Result component
       setShowComponent("1");
     } else {
-      // Render the ErrorResult component
       setShowComponent("2");
       console.log("Select all values");
     }
@@ -99,19 +84,6 @@ export default function LivePredict() {
   const handleChange3 = (event) => {
     setVanue(event.target.value);
   };
-
-  // const handleChange6 = (event) => {
-  //   setSelectedT1Players(event.target.value);
-  // };
-
-  // const handleChange7 = (event) => {
-  //   setSelectedT2Players(event.target.value);
-  // };
-
-  const handleChange5 = (event) => {
-    setTossDecision(event.target.value);
-  };
-
   const fetchData = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/livePredict", {
@@ -123,8 +95,6 @@ export default function LivePredict() {
           team1,
           team2,
           venue,
-          tossWinner,
-          tossDecision,
           currentScore,
           ballBowled,
           wicket,
@@ -143,16 +113,16 @@ export default function LivePredict() {
 return (
   <div className="main-container">
     {/* <Navbar /> */}
-    <div className="main-selector" style={{ marginTop: "7vh" }}>
+    <div className="main-selector" style={{ marginTop: "7vh",marginBottom:"5vh" }}>
       <div className="selector">
         <FormControl sx={{ minWidth: 100 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
-            Team-1
+          Batting Team
           </InputLabel>
           <Select
             value={team1}
             onChange={handleChange1}
-            label="Team1"
+            label="Batting Team"
             name="team1"
           >
             <MenuItem value="">
@@ -184,12 +154,12 @@ return (
       <div className="selector">
         <FormControl sx={{ minWidth: 100 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
-            Team-2
+            Bowling Team
           </InputLabel>
           <Select
             value={team2}
             onChange={handleChange2}
-            label="Team2"
+            label="Bowling Team"
             name="team2"
           >
             <MenuItem value="">
@@ -219,10 +189,10 @@ return (
         </FormControl>
       </div>
     </div>
-    <div className="main-venue">
+    <div className="main-venue" style={{marginBottom:"5vh"}}>
       <FormControl sx={{ minWidth: 120 }}>
         <InputLabel id="demo-simple-select-autowidth-label">City</InputLabel>
-        <Select value={venue} onChange={handleChange3} label="City">
+        <Select value={venue} onChange={handleChange3} label="City" style={{width:"25vw"}}>
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -247,51 +217,13 @@ return (
       </FormControl>
     </div>
 
-    <div className="main-selector">
-      <div className="selector">
-        <FormControl sx={{ minWidth: 140 }}>
-          <InputLabel id="demo-simple-select-autowidth-label">
-            Toss Winner
-          </InputLabel>
-          <Select
-            value={tossWinner}
-            onChange={handleChange4}
-            label="TossWinner"
-            name="tossWinner"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={team1}>{team1}</MenuItem>
-            <MenuItem value={team2}>{team2}</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-      <div className="selector">
-        <FormControl sx={{ minWidth: 140 }}>
-          <InputLabel id="demo-simple-select-autowidth-label">
-            Toss Decision
-          </InputLabel>
-          <Select
-            value={tossDecision}
-            onChange={handleChange5}
-            label="TossDecision"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value="Batting">Batting</MenuItem>
-            <MenuItem value="Bowling">Bowling</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
-
-    </div>
     <div style={{ marginLeft: "9.8vw", marginTop: "5px" }}>
-      <TextField id="outlined-basic" type="number" label="Current Score" value={currentScore} onChange={(e) => { setCurrentScore(e.target.value) }} variant="outlined" style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" type="number" label="Ball Bowled" variant="outlined" value={ballBowled} onChange={(e) => { setBallBowled(e.target.value) }} style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" type="number" label="Wickets" variant="outlined" value={wicket} onChange={(e) => { setWicket(e.target.value) }} style={{ marginRight: "5vw" }} />
-      <TextField id="outlined-basic" type="number" label="Target" variant="outlined" value={target} onChange={(e) => { setTarget(e.target.value) }} style={{ marginRight: "5vw" }} />
+      <TextField id="outlined-basic" type="number" label="Target" variant="outlined" value={target} onChange={(e) => { setTarget(e.target.value) }} style={{ marginRight: "5vw",marginBottom:"5vh" ,width:"25vw"}} />
+      <div>
+      <TextField id="outlined-basic" type="number" label="Wickets" variant="outlined" value={wicket} onChange={(e) => { setWicket(e.target.value) }} style={{ marginRight: "5vw",width:"24vw" }} />
+      <TextField id="outlined-basic" type="number" label="Current Score" value={currentScore} onChange={(e) => { setCurrentScore(e.target.value) }} variant="outlined" style={{ marginRight: "5vw" ,width:"24vw"}} />
+      <TextField id="outlined-basic" type="number" label="Ball Bowled" variant="outlined" value={ballBowled} onChange={(e) => { setBallBowled(e.target.value) }} style={{ width:"24vw"}} />
+      </div>
     </div>
 
     <div className="main-action">
