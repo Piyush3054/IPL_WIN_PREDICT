@@ -1,5 +1,6 @@
 import "./mystyles.css";
 import React, { useEffect, useState } from "react";
+import bottom from "../Images/bottom-section-bg.png";
 import logo from "../Images/IPL.png";
 import {
   csk_players,
@@ -12,12 +13,27 @@ import {
   lsg_players,
   srh_players,
   pk_players,
+  csk_players_fullName,
+  mi_players_fullName,
+  rcb_players_fullName,
+  kkr_players_fullName,
+  gt_players_fullName,
+  rr_players_fullName,
+  lsg_players_fullName,
+  srh_players_fullName,
+  dc_players_fullName,
+  pk_players_fullName,
 } from "./Players";
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
 import Result from "./Result";
 import ErrorResult from "./ErrorResult";
 import Navbar from "./Navbar";
-
 
 let percentage1, percentage2;
 export default function Predict() {
@@ -30,7 +46,7 @@ export default function Predict() {
   const [venue, setVanue] = React.useState("");
   const [tossDecision, setTossDecision] = React.useState("");
   const [selectedT2Players, setSelectedT2Players] = React.useState([]);
-  const [matchNumber,setMatchNumber] = useState("");
+  const [matchNumber, setMatchNumber] = useState("");
 
   useEffect(() => {
     if (
@@ -136,7 +152,12 @@ export default function Predict() {
   };
 
   return (
-    <div className="main-container">
+    <div className="main-container" style={{
+      background: `url(${bottom}) no-repeat`,
+      backgroundSize: "100vw",
+      backgroundColor:"#f0f2f8",
+    }}>
+      <Navbar />
       <div className="main-selector" style={{ marginTop: "7vh" }}>
         <div className="selector">
           <FormControl sx={{ minWidth: 100 }}>
@@ -221,69 +242,68 @@ export default function Predict() {
             value={selectedT1Players}
             onChange={handleChange6}
             label="Team-1 Squad"
-            
           >
             {team1 === "Chennai Super Kings"
-              ? csk_players.map((name) => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))
-              : team1 === "Mumbai Indians"
-                ? mi_players.map((name) => (
+              ? csk_players.map((name, index) => (
                   <MenuItem key={name} value={name}>
-                    {name}
+                    {csk_players_fullName[index]}
                   </MenuItem>
                 ))
-                : team1 === "Royal Challengers Bangalore"
-                  ? rcb_players.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))
-                  : team1 === "Kolkata Knight Riders"
-                    ? kkr_players.map((name) => (
-                      <MenuItem key={name} value={name}>
-                        {name}
-                      </MenuItem>
-                    ))
-                    : team1 === "Rajasthan Royals"
-                      ? rr_players.map((name) => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))
-                      : team1 === "Gujarat Titans"
-                        ? gt_players.map((name) => (
-                          <MenuItem key={name} value={name}>
-                            {name}
-                          </MenuItem>
-                        ))
-                        : team1 === "Lucknow Super Giants"
-                          ? lsg_players.map((name) => (
-                            <MenuItem key={name} value={name}>
-                              {name}
-                            </MenuItem>
-                          ))
-                          : team1 === "Sunrisers Hyderabad"
-                            ? srh_players.map((name) => (
-                              <MenuItem key={name} value={name}>
-                                {name}
-                              </MenuItem>
-                            ))
-                            : team1 === "Delhi Capitals"
-                              ? dc_players.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                  {name}
-                                </MenuItem>
-                              ))
-                              : team1 === "Punjab Kings"
-                                ? pk_players.map((name) => (
-                                  <MenuItem key={name} value={name}>
-                                    {name}
-                                  </MenuItem>
-                                ))
-                                : null}
+              : team1 === "Mumbai Indians"
+              ? mi_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {mi_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Royal Challengers Bangalore"
+              ? rcb_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {rcb_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Kolkata Knight Riders"
+              ? kkr_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {kkr_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Rajasthan Royals"
+              ? rr_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {rr_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Gujarat Titans"
+              ? gt_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {gt_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Lucknow Super Giants"
+              ? lsg_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {lsg_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Sunrisers Hyderabad"
+              ? srh_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {srh_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Delhi Capitals"
+              ? dc_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {dc_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team1 === "Punjab Kings"
+              ? pk_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {pk_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : null}
           </Select>
         </FormControl>
       </div>
@@ -297,66 +317,66 @@ export default function Predict() {
             onChange={handleChange7}
           >
             {team2 === "Chennai Super Kings"
-              ? csk_players.map((name) => (
-                <MenuItem key={name} value={name}>
-                  {name}
-                </MenuItem>
-              ))
-              : team2 === "Mumbai Indians"
-                ? mi_players.map((name) => (
+              ? csk_players.map((name, index) => (
                   <MenuItem key={name} value={name}>
-                    {name}
+                    {csk_players_fullName[index]}
                   </MenuItem>
                 ))
-                : team2 === "Royal Challengers Bangalore"
-                  ? rcb_players.map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))
-                  : team2 === "Kolkata Knight Riders"
-                    ? kkr_players.map((name) => (
-                      <MenuItem key={name} value={name}>
-                        {name}
-                      </MenuItem>
-                    ))
-                    : team2 === "Rajasthan Royals"
-                      ? rr_players.map((name) => (
-                        <MenuItem key={name} value={name}>
-                          {name}
-                        </MenuItem>
-                      ))
-                      : team2 === "Gujarat Titans"
-                        ? gt_players.map((name) => (
-                          <MenuItem key={name} value={name}>
-                            {name}
-                          </MenuItem>
-                        ))
-                        : team2 === "Lucknow Super Giants"
-                          ? lsg_players.map((name) => (
-                            <MenuItem key={name} value={name}>
-                              {name}
-                            </MenuItem>
-                          ))
-                          : team2 === "Sunrisers Hyderabad"
-                            ? srh_players.map((name) => (
-                              <MenuItem key={name} value={name}>
-                                {name}
-                              </MenuItem>
-                            ))
-                            : team2 === "Delhi Capitals"
-                              ? dc_players.map((name) => (
-                                <MenuItem key={name} value={name}>
-                                  {name}
-                                </MenuItem>
-                              ))
-                              : team2 === "Punjab Kings"
-                                ? pk_players.map((name) => (
-                                  <MenuItem key={name} value={name}>
-                                    {name}
-                                  </MenuItem>
-                                ))
-                                : null}
+              : team2 === "Mumbai Indians"
+              ? mi_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {mi_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Royal Challengers Bangalore"
+              ? rcb_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {rcb_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Kolkata Knight Riders"
+              ? kkr_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {kkr_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Rajasthan Royals"
+              ? rr_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {rr_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Gujarat Titans"
+              ? gt_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {gt_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Lucknow Super Giants"
+              ? lsg_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {lsg_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Sunrisers Hyderabad"
+              ? srh_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {srh_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Delhi Capitals"
+              ? dc_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {dc_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : team2 === "Punjab Kings"
+              ? pk_players.map((name, index) => (
+                  <MenuItem key={name} value={name}>
+                    {pk_players_fullName[index]}
+                  </MenuItem>
+                ))
+              : null}
           </Select>
         </FormControl>
       </div>
@@ -427,12 +447,37 @@ export default function Predict() {
           </FormControl>
         </div>
       </div>
-      <div style={{ marginLeft: "9.8vw", marginTop: "5px" }}>
-        <TextField id="outlined-basic" label="Match Number" value={matchNumber} onChange={(e)=>{setMatchNumber(e.target.value)}} variant="outlined" style={{ marginRight: "5vw" }} />
+      <div style={{marginLeft:"150px"}}>
+        <FormControl sx={{ minWidth: 200 }}>
+          <InputLabel id="demo-simple-select-autowidth-label">
+            Match Type
+          </InputLabel>
+          <Select
+            value={matchNumber}
+            onChange={(e) => {
+              setMatchNumber(e.target.value);
+            }}
+            label="MatchType"
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value="0">Third Place</MenuItem>
+            <MenuItem value="1">Eliminator</MenuItem>
+            <MenuItem value="2">Final</MenuItem>
+            <MenuItem value="3">League match</MenuItem>
+            <MenuItem value="4">Qulifier</MenuItem>
+            <MenuItem value="5">Qulifier-1</MenuItem>
+            <MenuItem value="6">Qulifier-2</MenuItem>
+            <MenuItem value="7">Semi Final</MenuItem>
+          </Select>
+        </FormControl>
       </div>
 
       <div className="main-action">
-        <button onClick={handleClick} style={{ marginBottom: "5vh" }}>Predict</button>
+        <button onClick={handleClick} style={{ marginBottom: "5vh" }}>
+          Predict
+        </button>
         {showComponent == 1 && team1 && team2 && (
           <Result
             team1={team1}

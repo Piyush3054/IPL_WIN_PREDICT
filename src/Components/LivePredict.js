@@ -1,5 +1,6 @@
 import "./mystyles.css";
 import React, { useEffect, useState } from "react";
+import bottom from "../Images/bottom-section-bg.png";
 import logo from "../Images/IPL.png";
 import {
   csk_players,
@@ -111,8 +112,12 @@ export default function LivePredict() {
 };
 
 return (
-  <div className="main-container">
-    {/* <Navbar /> */}
+  <div className="main-container" style={{
+    background: `url(${bottom}) no-repeat`,
+    backgroundSize: "100vw",
+    backgroundColor:"#f0f2f8",
+  }}>
+    <Navbar />
     <div className="main-selector" style={{ marginTop: "7vh",marginBottom:"5vh" }}>
       <div className="selector">
         <FormControl sx={{ minWidth: 100 }}>
@@ -238,6 +243,7 @@ return (
       )}
       {showComponent == 2 && <ErrorResult />}
     </div>
+    
   </div>
 );
 }
