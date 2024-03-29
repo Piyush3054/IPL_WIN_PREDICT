@@ -1,30 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import './mystyles.css'; // Import CSS file for additional styling
 
 function ProgressBar({ completed }) {
   const [percentage, setPercentage] = useState(0);
 
   useEffect(() => {
-    setPercentage(completed);
+    // Update the percentage with a delay to showcase transitions
+    setTimeout(() => {
+      setPercentage(completed);
+    }, 100);
   }, [completed]);
 
-  const containerStyles = {
-    height: 20,
-    width: '100%',
-    backgroundColor: "#050124",
-    borderRadius: 50,
-  }
-
-  const fillerStyles = {
-    height: '100%',
-    width: `${percentage}%`,
-    backgroundColor: "#6a1b9a",
-    borderRadius: 'inherit',
-  }
-
   return (
-    <div style={containerStyles}>
-      <div style={fillerStyles}>
-        <span></span>
+    <div className="progress-container">
+      <div className="filler" style={{ width: `${percentage}%` }}>
       </div>
     </div>
   );

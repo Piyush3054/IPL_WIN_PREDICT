@@ -15,6 +15,7 @@ import PbksDetails from './Components/Details/PbksDetails';
 import SrhDetails from './Components/Details/SrhDetails';
 import Home from './Components/Home';
 import Team from './Components/Team';
+import Stats from './Components/Stats';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/predict' element={<Predict />} />
           <Route path='/livepredict' element={<LivePredict />} />
           <Route path='/team' element={<Team />} />
+          <Route path='/stats' element={<Stats />} />
           <Route path='/rcb' element={<RcbDetails />} />
           <Route path='/dc' element={<DcDetails />} />
           <Route path='/kkr' element={<KkrDetails />} />

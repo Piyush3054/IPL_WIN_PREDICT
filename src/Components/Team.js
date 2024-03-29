@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Components/mystyles.css";
+import bottom from "../Images/bottom-section-bg.png";
 import icon from '../Images/icon.png'
 import bg from "../Images/background.png"
 import csk from "../Images/CSKoutline.png";
@@ -88,16 +89,16 @@ export default function Team() {
 
     return (
         <div className="main-container" style={{
-            background: `url(${bg}) no-repeat fixed`,
-            backgroundSize: "cover"
-        }}>
+            background: `url(${bottom}) no-repeat`,
+            backgroundSize: "100vw",
+            backgroundColor:"#f0f2f8",
+          }}>
             <Navbar />
-            <center><div style={{ margin: "5vh" }}><img src={icon}></img></div></center>
             <div className="mainCard-container" style={{
-                background: `url(${bg}) no-repeat fixed`,
-                backgroundSize: "cover"
+                background: `url(${bottom}) no-repeat`,
+                backgroundSize: "100vw",
+                backgroundColor:"#f0f2f8",
             }}>
-
                 {teams.map((team, index) => (
                     <div
                         key={index}
@@ -105,22 +106,18 @@ export default function Team() {
                         onClick={() => handleTeamClick(team.name)}
                         style={{ background: getTeamColorBelow(team.name) }}
                     >
-                        <div className="background" style={{ background: getTeamColor(team.name) }}></div>
+                        <div className="background" style={{ background: getTeamColor(team.name), border:getTeamColor(team.name)}}></div>
                         <img src={getTeamImage(team.name)} alt={team.name} />
                         <p>{team.name}</p>
                     </div>
                 ))}
 
             </div>
-            <div style={{ backgroundColor: "black", color: "white", padding: "10px", fontSize: "12px", display: "flex", justifyContent: "center", fontWeight: "600" }}>
-                Copyright © IPL 2024 All Rights Reserved.
-            </div>
         </div>
     );
 }
 
 function getTeamColorBelow(teamName) {
-    // Replace with your logic to get team colors
     switch (teamName) {
         case "Chennai Super Kings":
             return "#171d30";
@@ -143,7 +140,7 @@ function getTeamColorBelow(teamName) {
         case "Sunrisers Hyderabad":
             return "Brown";
         default:
-            return "#ffffff"; // Default color
+            return "#ffffff";
     }
 }
 
@@ -197,6 +194,6 @@ function getTeamColor(teamName) {
         case "Sunrisers Hyderabad":
             return "orange";
         default:
-            return "#ffffff"; // Default color
+            return "#ffffff";
     }
 }

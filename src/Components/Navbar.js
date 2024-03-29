@@ -17,6 +17,7 @@ export default function Navbar() {
           <Link to="/predict" className="active-link"  >Predict</Link>
           <Link to="/livepredict" className="active-link"  >Live Predict</Link>
           <Link to="/team" className="active-link"  >Teams</Link>
+          <Link to="/stats" className="active-link"  >Stats</Link>
         </div>
       </div>
   );

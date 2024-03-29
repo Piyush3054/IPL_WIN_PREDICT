@@ -1,4 +1,3 @@
-import "./mystyles.css";
 import React, { useEffect, useState } from "react";
 import bottom from "../Images/bottom-section-bg.png";
 import logo from "../Images/IPL.png";
@@ -32,7 +31,6 @@ import {
   TextField,
 } from "@mui/material";
 import Result from "./Result";
-import ErrorResult from "./ErrorResult";
 import Navbar from "./Navbar";
 
 let percentage1, percentage2;
@@ -52,17 +50,15 @@ export default function Predict() {
     if (
       team1 &&
       team2 &&
+      team1 !== team2 &&
       tossWinner &&
       venue &&
       tossDecision &&
-      selectedT1Players.length >= 11 &&
-      selectedT1Players.length <= 11 &&
-      selectedT2Players.length >= 11 &&
-      selectedT2Players.length <= 11 &&
+      selectedT1Players.length === 11 &&
+      selectedT2Players.length === 11 &&
       matchNumber
     ) {
       fetchData();
-      console.log("aasd");
     }
   }, [
     team1,
@@ -79,11 +75,16 @@ export default function Predict() {
     setTeam1(event.target.value);
     setRestrict(event.target.value);
   };
+
   const handleChange2 = (event) => {
-    if (!(event.target.value == restrict)) {
+    if (event.target.value === team1) {
+      setTeam2("");
+      setShowComponent(2);
+    } else {
       setTeam2(event.target.value);
     }
   };
+
   const handleChange4 = (event) => {
     setTossWinner(event.target.value);
   };
@@ -92,6 +93,7 @@ export default function Predict() {
     if (
       team1 &&
       team2 &&
+      team1 !== team2 &&
       tossWinner &&
       venue &&
       tossDecision &&
@@ -99,12 +101,24 @@ export default function Predict() {
       selectedT2Players.length === 11 &&
       matchNumber
     ) {
-      // Render the Result component
       setShowComponent("1");
     } else {
-      // Render the ErrorResult component
-      setShowComponent("2");
-      console.log("Select all values");
+      if (
+        !team1 &&
+        !team2 &&
+        !tossWinner &&
+        !venue &&
+        !tossDecision &&
+        !matchNumber
+      ) {
+        setShowComponent("4");
+      }
+      else{
+        if(selectedT1Players.length !== 11 &&
+          selectedT2Players.length !== 11){
+            setShowComponent("3");
+          }
+      }
     }
   };
 
@@ -152,15 +166,18 @@ export default function Predict() {
   };
 
   return (
-    <div className="main-container" style={{
-      background: `url(${bottom}) no-repeat`,
-      backgroundSize: "100vw",
-      backgroundColor:"#f0f2f8",
-    }}>
+    <div
+      className="main-container"
+      style={{
+        background: `url(${bottom}) no-repeat`,
+        backgroundSize: "100vw",
+        backgroundColor: "#f0f2f8",
+      }}
+    >
       <Navbar />
       <div className="main-selector" style={{ marginTop: "7vh" }}>
         <div className="selector">
-          <FormControl sx={{ minWidth: 100 }}>
+          <FormControl sx={{ minWidth: 150, maxWidth: 340 }}>
             <InputLabel id="demo-simple-select-autowidth-label">
               Team-1
             </InputLabel>
@@ -197,7 +214,7 @@ export default function Predict() {
           </FormControl>
         </div>
         <div className="selector">
-          <FormControl sx={{ minWidth: 100 }}>
+          <FormControl sx={{ minWidth: 150, maxWidth: 340 }}>
             <InputLabel id="demo-simple-select-autowidth-label">
               Team-2
             </InputLabel>
@@ -235,182 +252,188 @@ export default function Predict() {
         </div>
       </div>
       <div className="main-venue">
-        <FormControl sx={{ minWidth: 150 }}>
+        <FormControl sx={{ minWidth: 250 }}>
           <InputLabel id="demo-multiple-label">Team-1 Squad</InputLabel>
           <Select
             multiple
             value={selectedT1Players}
             onChange={handleChange6}
             label="Team-1 Squad"
+            style={{ minWidth: 100, maxWidth: 200 }}
           >
             {team1 === "Chennai Super Kings"
               ? csk_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {csk_players_fullName[index]}
-                  </MenuItem>
-                ))
+                <MenuItem key={name} value={name}>
+                  {csk_players_fullName[index]}
+                </MenuItem>
+              ))
               : team1 === "Mumbai Indians"
-              ? mi_players.map((name, index) => (
+                ? mi_players.map((name, index) => (
                   <MenuItem key={name} value={name}>
                     {mi_players_fullName[index]}
                   </MenuItem>
                 ))
-              : team1 === "Royal Challengers Bangalore"
-              ? rcb_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {rcb_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Kolkata Knight Riders"
-              ? kkr_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {kkr_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Rajasthan Royals"
-              ? rr_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {rr_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Gujarat Titans"
-              ? gt_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {gt_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Lucknow Super Giants"
-              ? lsg_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {lsg_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Sunrisers Hyderabad"
-              ? srh_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {srh_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Delhi Capitals"
-              ? dc_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {dc_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team1 === "Punjab Kings"
-              ? pk_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {pk_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : null}
+                : team1 === "Royal Challengers Bangalore"
+                  ? rcb_players.map((name, index) => (
+                    <MenuItem key={name} value={name}>
+                      {rcb_players_fullName[index]}
+                    </MenuItem>
+                  ))
+                  : team1 === "Kolkata Knight Riders"
+                    ? kkr_players.map((name, index) => (
+                      <MenuItem key={name} value={name}>
+                        {kkr_players_fullName[index]}
+                      </MenuItem>
+                    ))
+                    : team1 === "Rajasthan Royals"
+                      ? rr_players.map((name, index) => (
+                        <MenuItem key={name} value={name}>
+                          {rr_players_fullName[index]}
+                        </MenuItem>
+                      ))
+                      : team1 === "Gujarat Titans"
+                        ? gt_players.map((name, index) => (
+                          <MenuItem key={name} value={name}>
+                            {gt_players_fullName[index]}
+                          </MenuItem>
+                        ))
+                        : team1 === "Lucknow Super Giants"
+                          ? lsg_players.map((name, index) => (
+                            <MenuItem key={name} value={name}>
+                              {lsg_players_fullName[index]}
+                            </MenuItem>
+                          ))
+                          : team1 === "Sunrisers Hyderabad"
+                            ? srh_players.map((name, index) => (
+                              <MenuItem key={name} value={name}>
+                                {srh_players_fullName[index]}
+                              </MenuItem>
+                            ))
+                            : team1 === "Delhi Capitals"
+                              ? dc_players.map((name, index) => (
+                                <MenuItem key={name} value={name}>
+                                  {dc_players_fullName[index]}
+                                </MenuItem>
+                              ))
+                              : team1 === "Punjab Kings"
+                                ? pk_players.map((name, index) => (
+                                  <MenuItem key={name} value={name}>
+                                    {pk_players_fullName[index]}
+                                  </MenuItem>
+                                ))
+                                : null}
           </Select>
         </FormControl>
       </div>
       <div className="main-venue">
-        <FormControl sx={{ minWidth: 150 }}>
+        <FormControl sx={{ minWidth: 250 }}>
           <InputLabel id="demo-multiple-name-label">Team-2 Squad</InputLabel>
           <Select
-            label="Team-2 Squad"
             multiple
             value={selectedT2Players}
             onChange={handleChange7}
+            label="Team-2 Squad"
+            style={{ minWidth: 100, maxWidth: 200 }}
           >
             {team2 === "Chennai Super Kings"
               ? csk_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {csk_players_fullName[index]}
-                  </MenuItem>
-                ))
+                <MenuItem key={name} value={name}>
+                  {csk_players_fullName[index]}
+                </MenuItem>
+              ))
               : team2 === "Mumbai Indians"
-              ? mi_players.map((name, index) => (
+                ? mi_players.map((name, index) => (
                   <MenuItem key={name} value={name}>
                     {mi_players_fullName[index]}
                   </MenuItem>
                 ))
-              : team2 === "Royal Challengers Bangalore"
-              ? rcb_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {rcb_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Kolkata Knight Riders"
-              ? kkr_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {kkr_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Rajasthan Royals"
-              ? rr_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {rr_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Gujarat Titans"
-              ? gt_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {gt_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Lucknow Super Giants"
-              ? lsg_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {lsg_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Sunrisers Hyderabad"
-              ? srh_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {srh_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Delhi Capitals"
-              ? dc_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {dc_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : team2 === "Punjab Kings"
-              ? pk_players.map((name, index) => (
-                  <MenuItem key={name} value={name}>
-                    {pk_players_fullName[index]}
-                  </MenuItem>
-                ))
-              : null}
+                : team2 === "Royal Challengers Bangalore"
+                  ? rcb_players.map((name, index) => (
+                    <MenuItem key={name} value={name}>
+                      {rcb_players_fullName[index]}
+                    </MenuItem>
+                  ))
+                  : team2 === "Kolkata Knight Riders"
+                    ? kkr_players.map((name, index) => (
+                      <MenuItem key={name} value={name}>
+                        {kkr_players_fullName[index]}
+                      </MenuItem>
+                    ))
+                    : team2 === "Rajasthan Royals"
+                      ? rr_players.map((name, index) => (
+                        <MenuItem key={name} value={name}>
+                          {rr_players_fullName[index]}
+                        </MenuItem>
+                      ))
+                      : team2 === "Gujarat Titans"
+                        ? gt_players.map((name, index) => (
+                          <MenuItem key={name} value={name}>
+                            {gt_players_fullName[index]}
+                          </MenuItem>
+                        ))
+                        : team2 === "Lucknow Super Giants"
+                          ? lsg_players.map((name, index) => (
+                            <MenuItem key={name} value={name}>
+                              {lsg_players_fullName[index]}
+                            </MenuItem>
+                          ))
+                          : team2 === "Sunrisers Hyderabad"
+                            ? srh_players.map((name, index) => (
+                              <MenuItem key={name} value={name}>
+                                {srh_players_fullName[index]}
+                              </MenuItem>
+                            ))
+                            : team2 === "Delhi Capitals"
+                              ? dc_players.map((name, index) => (
+                                <MenuItem key={name} value={name}>
+                                  {dc_players_fullName[index]}
+                                </MenuItem>
+                              ))
+                              : team2 === "Punjab Kings"
+                                ? pk_players.map((name, index) => (
+                                  <MenuItem key={name} value={name}>
+                                    {pk_players_fullName[index]}
+                                  </MenuItem>
+                                ))
+                                : null}
           </Select>
         </FormControl>
       </div>
-      <div className="main-venue">
-        <FormControl sx={{ minWidth: 120 }}>
-          <InputLabel id="demo-simple-select-autowidth-label">City</InputLabel>
-          <Select value={venue} onChange={handleChange3} label="City">
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value="Ahmedabad">Ahmedabad</MenuItem>
-            <MenuItem value="Kolkata">Kolkata</MenuItem>
-            <MenuItem value="Mumbai">Mumbai</MenuItem>
-            <MenuItem value="Pune">Pune</MenuItem>
-            <MenuItem value="Dubai">Dubai</MenuItem>
-            <MenuItem value="Sharjah">Sharjah</MenuItem>
-            <MenuItem value="Abu Dhabi">Abu Dhabi</MenuItem>
-            <MenuItem value="Delhi">Delhi</MenuItem>
-            <MenuItem value="Chennai">Chennai</MenuItem>
-            <MenuItem value="Hydrabad">Hydrabad</MenuItem>
-            <MenuItem value="Visakhapatnam">Visakhapatnam</MenuItem>
-            <MenuItem value="Chandigarh">Chandigarh</MenuItem>
-            <MenuItem value="Banglore">Banglore</MenuItem>
-            <MenuItem value="Jaipur">Jaipur</MenuItem>
-            <MenuItem value="Centurion">Centurion</MenuItem>
-            <MenuItem value="Durban">Durban</MenuItem>
-            <MenuItem value="Others">Others</MenuItem>
-          </Select>
-        </FormControl>
+      <div className="main-selctor">
+        <div className="selector">
+          <FormControl sx={{ minWidth: 100, maxWidth: 200 }}>
+            <InputLabel id="demo-simple-select-autowidth-label">
+              City
+            </InputLabel>
+            <Select value={venue} onChange={handleChange3} label="City">
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value="Ahmedabad">Ahmedabad</MenuItem>
+              <MenuItem value="Kolkata">Kolkata</MenuItem>
+              <MenuItem value="Mumbai">Mumbai</MenuItem>
+              <MenuItem value="Pune">Pune</MenuItem>
+              <MenuItem value="Dubai">Dubai</MenuItem>
+              <MenuItem value="Sharjah">Sharjah</MenuItem>
+              <MenuItem value="Abu Dhabi">Abu Dhabi</MenuItem>
+              <MenuItem value="Delhi">Delhi</MenuItem>
+              <MenuItem value="Chennai">Chennai</MenuItem>
+              <MenuItem value="Hydrabad">Hydrabad</MenuItem>
+              <MenuItem value="Visakhapatnam">Visakhapatnam</MenuItem>
+              <MenuItem value="Chandigarh">Chandigarh</MenuItem>
+              <MenuItem value="Banglore">Banglore</MenuItem>
+              <MenuItem value="Jaipur">Jaipur</MenuItem>
+              <MenuItem value="Centurion">Centurion</MenuItem>
+              <MenuItem value="Durban">Durban</MenuItem>
+              <MenuItem value="Others">Others</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
       </div>
 
       <div className="main-selector">
         <div className="selector">
-          <FormControl sx={{ minWidth: 140 }}>
+          <FormControl sx={{ minWidth: 150, maxWidth: 340 }}>
             <InputLabel id="demo-simple-select-autowidth-label">
               Toss Winner
             </InputLabel>
@@ -429,7 +452,7 @@ export default function Predict() {
           </FormControl>
         </div>
         <div className="selector">
-          <FormControl sx={{ minWidth: 140 }}>
+          <FormControl sx={{ minWidth: 150, maxWidth: 340 }}>
             <InputLabel id="demo-simple-select-autowidth-label">
               Toss Decision
             </InputLabel>
@@ -447,8 +470,8 @@ export default function Predict() {
           </FormControl>
         </div>
       </div>
-      <div style={{marginLeft:"150px"}}>
-        <FormControl sx={{ minWidth: 200 }}>
+      <div className="selector">
+        <FormControl sx={{ minWidth: 100, maxWidth: 200 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
             Match Type
           </InputLabel>
@@ -467,9 +490,6 @@ export default function Predict() {
             <MenuItem value="2">Final</MenuItem>
             <MenuItem value="3">League match</MenuItem>
             <MenuItem value="4">Qulifier</MenuItem>
-            <MenuItem value="5">Qulifier-1</MenuItem>
-            <MenuItem value="6">Qulifier-2</MenuItem>
-            <MenuItem value="7">Semi Final</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -486,7 +506,32 @@ export default function Predict() {
             percentage2={percentage2}
           />
         )}
-        {showComponent == 2 && <ErrorResult />}
+        {showComponent == 2 && (
+          <div className="alert-box">
+            <span className="alert-message">
+              Team 1 and Team 2 cannot be Same
+            </span>
+            <span className="close-btn" onClick={() => setShowComponent("")}>
+              &times;
+            </span>
+          </div>
+        )}
+        {showComponent == 3 && (
+          <div className="alert-box">
+            <span className="alert-message">Select exact 11 Players</span>
+            <span className="close-btn" onClick={() => setShowComponent("")}>
+              &times;
+            </span>
+          </div>
+        )}
+        {showComponent == 4 && (
+          <div className="alert-box">
+            <span className="alert-message">Fill all the Values</span>
+            <span className="close-btn" onClick={() => setShowComponent("")}>
+              &times;
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

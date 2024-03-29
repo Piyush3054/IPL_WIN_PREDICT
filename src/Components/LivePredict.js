@@ -16,7 +16,6 @@ import {
 } from "./Players";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import Result from "./Result";
-import ErrorResult from "./ErrorResult";
 import Navbar from "./Navbar";
 
 
@@ -60,11 +59,13 @@ export default function LivePredict() {
     setRestrict(event.target.value);
   };
   const handleChange2 = (event) => {
-    if (!(event.target.value == restrict)) {
+    if (event.target.value === team1) {
+      setTeam2("");
+      setShowComponent("2");
+    } else {
       setTeam2(event.target.value);
     }
   };
-
   const handleClick = () => {
     if (
       team1 &&
@@ -75,12 +76,31 @@ export default function LivePredict() {
       wicket &&
       target
     ) {
-      setShowComponent("1");
+      if (target > 720) {
+        setShowComponent("3");
+      } else if (wicket > 10) {
+        setShowComponent("4");
+      } 
+      else if (currentScore >= target) {
+        if (currentScore <= "100" && target !== "100") {
+          setShowComponent("5");
+        }
+        else{
+          setShowComponent("1");
+        }
+      }
+      else if (ballBowled > 120) {
+        setShowComponent("6");
+      } else {
+        setShowComponent("1");
+      }
     } else {
-      setShowComponent("2");
+      setShowComponent("7");
       console.log("Select all values");
     }
   };
+
+  
 
   const handleChange3 = (event) => {
     setVanue(event.target.value);
@@ -118,9 +138,9 @@ return (
     backgroundColor:"#f0f2f8",
   }}>
     <Navbar />
-    <div className="main-selector" style={{ marginTop: "7vh",marginBottom:"5vh" }}>
+    <div className="main-selector" style={{ marginTop: "4vh" }}>
       <div className="selector">
-        <FormControl sx={{ minWidth: 100 }}>
+        <FormControl sx={{minWidth:150, maxWidth: 340 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
           Batting Team
           </InputLabel>
@@ -157,7 +177,7 @@ return (
         </FormControl>
       </div>
       <div className="selector">
-        <FormControl sx={{ minWidth: 100 }}>
+        <FormControl sx={{minWidth:150, maxWidth: 340 }}>
           <InputLabel id="demo-simple-select-autowidth-label">
             Bowling Team
           </InputLabel>
@@ -194,10 +214,10 @@ return (
         </FormControl>
       </div>
     </div>
-    <div className="main-venue" style={{marginBottom:"5vh"}}>
-      <FormControl sx={{ minWidth: 120 }}>
+    <div className="selector" style={{marginTop: 30}}>
+      <FormControl sx={{minWidth:150, maxWidth: 340 }}>
         <InputLabel id="demo-simple-select-autowidth-label">City</InputLabel>
-        <Select value={venue} onChange={handleChange3} label="City" style={{width:"25vw"}}>
+        <Select value={venue} onChange={handleChange3} label="City">
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
@@ -221,16 +241,30 @@ return (
         </Select>
       </FormControl>
     </div>
-
-    <div style={{ marginLeft: "9.8vw", marginTop: "5px" }}>
-      <TextField id="outlined-basic" type="number" label="Target" variant="outlined" value={target} onChange={(e) => { setTarget(e.target.value) }} style={{ marginRight: "5vw",marginBottom:"5vh" ,width:"25vw"}} />
-      <div>
-      <TextField id="outlined-basic" type="number" label="Wickets" variant="outlined" value={wicket} onChange={(e) => { setWicket(e.target.value) }} style={{ marginRight: "5vw",width:"24vw" }} />
-      <TextField id="outlined-basic" type="number" label="Current Score" value={currentScore} onChange={(e) => { setCurrentScore(e.target.value) }} variant="outlined" style={{ marginRight: "5vw" ,width:"24vw"}} />
-      <TextField id="outlined-basic" type="number" label="Ball Bowled" variant="outlined" value={ballBowled} onChange={(e) => { setBallBowled(e.target.value) }} style={{ width:"24vw"}} />
-      </div>
+    <div className="main-selector" style={{ marginTop: "4vh" }}>
+    <div className="selector">
+      <FormControl sx={{minWidth:150, maxWidth: 340 }}>
+        <TextField id="outlined-basic" type="number" label="Target" variant="outlined" value={target} onChange={(e)=>{ setTarget(e.target.value) }}/>
+      </FormControl>
     </div>
-
+    <div className="selector">
+      <FormControl sx={{minWidth:150, maxWidth: 340 }}>
+        <TextField id="outlined-basic" type="number" label="Current Score" variant="outlined" value={currentScore} onChange={(e)=>{ setCurrentScore(e.target.value) }}/>
+      </FormControl>
+    </div>
+    </div>
+    <div className="main-selector" style={{ marginTop: "4vh" }}>
+    <div className="selector">
+      <FormControl sx={{minWidth:150, maxWidth: 340 }}>
+      <TextField id="outlined-basic" type="number" label="Wickets" variant="outlined" value={wicket} onChange={(e)=>{ setWicket(e.target.value) }}/>
+      </FormControl>
+    </div>
+    <div className="selector">
+      <FormControl sx={{minWidth:150, maxWidth: 340 }}>
+      <TextField id="outlined-basic" type="number" label="Balls Bowled" variant="outlined" value={ballBowled} onChange={(e)=>{ setBallBowled(e.target.value) }}/>
+      </FormControl>
+    </div>
+    </div>
     <div className="main-action">
       <button onClick={handleClick} style={{marginTop:"5vh",marginBottom:"5vh"}}>Predict</button>
       {showComponent == 1 && team1 && team2 && (
@@ -241,7 +275,54 @@ return (
           percentage2={percentage2}
         />
       )}
-      {showComponent == 2 && <ErrorResult />}
+      {showComponent == 2 && (
+  <div className="alert-box">
+    <span className="alert-message">Batting team and Bowling team cannot be same</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
+{showComponent == 3 && (
+  <div className="alert-box">
+    <span className="alert-message">Target Cannot be greater than 720</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
+{showComponent == 4 && (
+  <div className="alert-box">
+    <span className="alert-message">Wickets cannot be greater than 10</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
+{showComponent == 5 && (
+  <div className="alert-box">
+    <span className="alert-message">Current score to be less than Target score</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
+{showComponent == 6 && (
+  <div className="alert-box">
+    <span className="alert-message">Bowls should be less than 120</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
+{showComponent == 7 && (
+  <div className="alert-box">
+    <span className="alert-message">Fill all the Values</span>
+    <span className="close-btn" onClick={() => setShowComponent("")}>
+      &times;
+    </span>
+  </div>
+)}
     </div>
     
   </div>

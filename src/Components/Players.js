@@ -1,118 +1,124 @@
 export const csk_players = [
-    'MS Dhoni', 'DP Conway', 'RD Gaikwad', 'AM Rahane', 'AT Rayudu',
-    'MM Ali', 'S Dube', 'D Pretorius', 'MJ Santner', 'RA Jadeja',
-    'TU Deshpande', 'DL Chahar', 'Simarjeet Singh', 'PH Solanki', 'M Theekshana',
-    'BA Stokes'
+    'MS Dhoni', 'DP Conway', 'RD Gaikwad', 'AM Rahane', '0','1','2', 'RA Jadeja','MJ Santner',
+    'MM Ali', 'S Dube', '3','4','5','SN Thakur','6','7','DL Chahar','M Theekshana','Mukesh Choudhary','Mustafizur Rahman','PH Solanki','Simarjeet Singh', 
+    'TU Deshpande','8'    
 ];
 export const csk_players_fullName = [
-    'Mahendra Singh Dhoni (Wicket Keeper)', 'Devon Conway (Batsman)', 'Ruturaj Gaikwad (Batsman)', 'Ajinkya Rahane (Batsman)', 'Ambati Rayudu (Batsman)',
-    'Mohen Ali (All Rounder)', 'Shivam Dube (Batsman)' , 'Dwaine Pretorius (All Rounder)', 'Michel Santner (All Rounder)', 'Ravindra Jadeja (All Rounder)',
-    'Tushar Deshpande (Bowler)', 'Deepak Chahar (Bowler)', 'Simarjeet Singh (Bowler)', 'Prashant Solanki (Bowler)', 'Maheesh Theekshana (Bowler)',
-    'Ben Stokes (All Rounder)'
+    'Mahendra Singh Dhoni (Wicket Keeper)', 'Devon Conway (Batsman)', 'Ruturaj Gaikwad (Batsman)', 'Ajinkya Rahane (Batsman)', 'Shaik Rasheed (Batsman)',
+    'Sameer Rizvi (Batsman)','Avanish Rao Aravelly (Batsman)', 'Ravindra Jadeja (All Rounder)',  'Michel Santner (All Rounder)','Moeen Ali (All Rounder)', 'Shivam Dube (All Rounder)' , 'Nishant Sindhu (All Rounder)',
+    'Ajay Mandal (All Rounder)','Rachin Ravindra (All Rounder)','Shardul Thakur (All Rounder)','Daryl Mitchell (All Rounder)','Rajvardhan Hangargekar (Bowler)','Deepak Chahar (Bowler)','Maheesh Theekshana (Bowler)','Mukesh Choudhary (Bowler)','Mustafizur Rahman (Bowler)','Prashant Solanki (Bowler)','Simarjeet Singh (Bowler)','Tushar Deshpande (Bowler)',  
+    'Matheesha Pathirana (Bowler)'
 ];
 export const rcb_players = [
-    'V Kohli', 'F du Plessis', 'GJ Maxwell', 'RM Patidar', 'Mohammad Siraj',
-    'HV Patel', 'KD Karthik', 'Shahbaz Ahemad', 'Anuj Rawat', 'Akash Deep',
-    'JR Hazlewood', 'MK Lomror', 'FA Allen', 'SS Prabhudessai', 'KS Sharma',
-    'S Kaul', 'DJ Willey', 'DAJ Bracewell', 'WD Parnell','AB de Villiers'
+    'F du Plessis','RM Patidar','V Kohli', 'Anuj Rawat','KD Karthik', 'SS Prabhudessai', '0','1','GJ Maxwell', 'MK Lomror', 'KS Sharma', 'CJ Green','3','4','5','Akash Deep',
+    'AS Joseph','LH Ferguson','Mohammad Siraj','Yash Dayal','TK Curran','6','7','8','9'
 ];
 export const rcb_players_fullName = [
-    'Virat Kohli (Batsman)', 'Faf du Plessis (Batsman)', 'Glen Maxwell (All Rounder)', 'Rajat Patidar (Batsman)', 'Mohammad Siraj (Bowler)',
-    'Harshal Patel (Bowler)', 'Dinesh Karthik (Wicket Keeper)', 'Shahbaz Ahemad (All Rounder)', 'Anuj Rawat (Wicket Keeper)', 'Akash Deep (Bowler)',
-    'Josh Hazlewood (Bowler)', 'Mahipal Lomror (Batsman)', 'Finn Allen (Batsman)', 'Suresh Prabhudessai (Batsman)', 'Karan Sharma (Bowler)',
-    'Siddarth Kaul (Bowler)', 'David Willey (All Rounder)', 'Michael Bracewell (All Rounder)', 'Wayne Parnell (Bowler)','AB de Villiers (Batsman)'
+    'Faf du Plessis (Batsman)','Rajat Patidar (Batsman)','Virat Kohli (Batsman)', 'Anuj Rawat (Wicket Keeper)', 'Dinesh Karthik (Wicket Keeper)','Suresh Prabhudessai (Batsman)','Will Jacks (Batsman)','Saurav Chuahan (Batsman)','Glen Maxwell (All Rounder)', 'Mahipal Lomror (All Rounder)',
+    'Karan Sharma (All Rounder)','Gameron Green (All Rounder)','Swapnil Singh (All Rounder)','Mayank dagar (All Rounder)','Manoj Bhandage (All Rounder)','Akash Deep (Bowler)','Alzarri Joseph (Bowler)','Lockie Ferguson (Bowler)','Mohammad Siraj (Bowler)',
+    'Yash Dayal (Bowler)','Tom Curren (Bowler)','Reece Topley (Bowler)','Himanshu Sharma (Bowler)','Rajan Kumar (Bowler)','Vyshank Vijay Kumar (Bowler)'
 ];
 export const kkr_players = [
-    'N Rana', 'VR Iyer', 'AD Russell', 'SP Narine', 'UT Yadav',
-    'TG Southee', 'Harshit Rana', 'AS Roy', 'RK Singh', 'SN Thakur',
-    'LH Forguson', 'VG Arora', 'D Wiese', 'K Khejroliya', 'Mandeep Singh',
-    'JJ Roy'
+    'N Rana', 'RK Singh','0','SS Iyer','1','KS Bharat','MK Pandey','JJ Roy','3','AS Roy','Ramandeep Singh','AD Russell', 'VR Iyer','5','Mujeeb Ur Rahman','PVD Chameera','Harshit Rana', 'SP Narine',
+    'VG Arora','6','MA Starc','C Sakariya'
 ];
 export const kkr_players_fullName = [
-    'Nitish Rana (Batsman)', 'Venkatesh Iyer (Batsman)', 'Andre Russell (All Rounder)', 'Sunil Narine (Bowler)', 'Umesh Yadav (Bowler)',
-    'Tim Southee (Bowler)', 'Harshit Rana (Batsman)', 'Anukul Roy (Wicket Keeper)', 'Rinku Singh (Batsman)', 'Shardul Thakur (All Rounder)',
-    'Lokie Forguson (Bowler)', 'Vaibhav Arora (Batsman)', 'David Wiese (Bowler)', 'Kulwant Khejroliya (Bowler)', 'Mandeep Singh (Batsman)',
-    'Jason Roy (Batsman)'
+    'Nitish Rana (Batsman)', 'Rinku Singh (Batsman)', 'Rahamanulla Gurbaz (Wicket Keeper)', 'Shreyas Iyer (Batsman)', 'Sherfane Rutherford (Batsman)',
+    'K.S Bharat (Batsman)', 'Manish Pandey (Batsman)', 'Jason Roy (Batsman)', 'Angkrish Raghuvanshi (Batsman)', 'Anukul Roy (All Rounder)',
+    'Ramandeep Singh (All Rounder)', 'Andre Rusell (All Rounder)', 'Venkatesh Iyer (All Rounder)', 'Suyash Sharma (Bowler)', 'Mujeeb Ur Rahman (Bowler)',
+    'Dusmantha Chameera (Bowler)','Harshit Rana (Bowler)','Sunil Narine (Bowler)','Vaibhav Arora (Bowler)','Varun Chakravarthy (Bowler)','Mitchel Starc (Bowler)','Chetan Sakariya (Bowler)'
 ];
 export const mi_players = [
-    'R Sharma', 'S Sandeep Warrier', 'SA Yadav', 'Ishan Kishan', 'D Brevis',
-    'Tilak Varma', 'TH David', 'Ramandeep Singh', 'HR Shokeen', 'T Stubbs',
-    'K Kartikeya', 'JP Behrendorff', 'CJ Green', 'RP Meredith', 'PP Chawla',
-    'Vishnu Vinod', 'CJ Jordan'
+    'R Sharma', 'D Brevis','SA Yadav','Ishan Kishan','Tilak Varma','TH David','Vishnu Vinod', 'Mohammad Nabi',   
+    '1', '2', '3',
+    '4', 'HH Pandya', '5','6','7','8','JJ Bumrah','PP Chawla','KD Karthik', '9','JP Behrendorff','10','S Gopal'
+    ,'11'
 ];
 export const mi_players_fullName = [
-    'Rohit Sharma (Batsman)', 'Sandeep Warrier (Batsman)', 'Suryakumar Yadav (Batsman)', 'Ishan Kishan (Wicket Keeper)', 'David Brevis (Batsman)',
-    'Tilak Varma (Batsman)', 'Tim David (Batsman)', 'Ramandeep Singh (Bowler)', 'Hrithik Shokeen (Bowler)', 'Trishan Stubbs (Batsman)',
-    'Kumar Kartikeya (Bowler)', 'Jason Behrendorff (Bowler)', 'Camreon Green (All Rounder)', 'Riley Meredith (Bowler)', 'Piyush Chawla (Bowler)',
-    'Vishnu Vinod (Bowler)', 'Cris Jordan (Bowler)'
+    'Rohit Sharma (Batsman)', 'Dewald Brevis (Batsman)', 'Suryakumar Yadav (Batsman)', 'Ishan Kishan (Wicket Keeper)', 'Tilak Varma (Batsman)',
+    'Tim David (Batsman)','Vishnu Vinod (Batsman)','Mohammad Nabi (All Rounder)',  'Arjun Tendulkar (All Rounder)', 'Romario Shepherd (All Rounder)', 'Shams Mulani (All Rounder)',
+    'Nehal Wadhera (All Rounder)', 'Hardik Pandya (All Rounder)', 'Gerald Coetzee (All Rounder)', 'Anshul Kamboj (All Rounder)', 'Naman Dhir (All Rounder)',
+    'Shivalik Sharma (All Rounder)','Jasprit Bumrah (Bowler)','Piyush Chawla (Bowler)','Kumar Kartikeya (Bowler)','Akash Madhwal (Bowler)','Jason Behrendroff (Bowler)','Dishan Madhushanka (Bowler)',
+    'Shreyas Gopal','Nuwan Thushara'
 ];
 export const dc_players = [
-    'AR Patel', 'A Nortje', 'DA Warner', 'PP Shaw', 'MR Marsh',
-    'SN Khan', 'PK Garg', 'Mustafizur Rahman', 'K Yadav', 'C Sakariya',
-    'Lalit Yadav', 'RV Patel', 'R Powell', 'P Dubey', 'L Ngidi',
-    'Aman Hakim Khan', 'I Sharma', 'MK Pandey','RR Rossouw'
+    'RR Pant','DA Warner','PP Shaw','0','1','2','3','4','5','6','7','AR Patel','Lalit Yadav','MR Marsh','8','P Dubey',
+    '11','A Nortje', 'K Yadav','L Ngidi','KK Ahmed','I Sharma','KW Richardson','9','10'
+    
 ];
 export const dc_players_fullName = [
-    'Axar Patel (All Rounder)', 'Anrich Nortje (Bowler)', 'David Warner (Batsman)', 'Prithvi Shaw (Batsman)', 'Michel Marsh (All Rounder)',
-    'Sarfaraz Khan (Batsman)', 'Priyam Garg (Wicket Keeper)', 'Mustafizur Rahman (Bowler)', 'Kuldeep Yadav (Bowler)', 'Chetan Sakariya (Bowler)',
-    'Lalit Yadav (Batsman)', 'Ripal Patel (Batsman)', 'Rowman Powell (Batsman)', 'Pravin Dubey (Bowler)', 'Lungi Ngidi (Bowler)',
-    'Aman Hakim Khan (Bowler)', 'Ishant Sharma (Bowler)', 'Manish Pandey (Batsman)','Ryle Rossouw (Batsman)'
+    'Rishabh Pant (Wicket Keeper)','David Warner (Batsman)','Prithvi Shaw (Batsman)','Yash Dhull (Batsman)','Shai Hope (Batsman)','Swastik Chhikara (Batsman)','Abhisek Porel (Batsman)','Harry Brook (Batsman)',
+    'Ricky Bhul (Batsman)','Kumar Kushagra (Batsman)','Tristan Stubbs (Batsman)',
+    'Axar Patel (All Rounder)','Lalit Yadav (All Rounder)','Michel Marsh (All Rounder)','Sumit Kumar (All Rounder)','Pravin Dubey (Bowler)','Vicky Ostwal (Bowler)', 'Anrich Nortje (Bowler)',
+    'Kuldeep Yadav (Bowler)','Lungi Ngidi (Bowler)', 'Khaleel Ahmed (Bowler)',
+    'Ishant Sharma (Bowler)', 'Jhye Richardson (Bowler)','Mukesh Kumar (Bowler)','Rasikh Dar (Bowler)'
 ];
 export const gt_players = [
-    'HH Pandya', 'Subhman Gill', 'DA Miller', 'A Manohar', 'B Sai Sudharsan',
-    'WP Saha', 'MS Wade', 'Rashid Khan', 'R Tewatia', 'V Shankar',
-    'Mohammed Shami', 'AS Joseph', 'Yash Dayal', 'PJ Sangwan', 'J Yadav',
-    'R Sai Kishore', 'KS Williamson', 'OF Smith', 'KS Bharat', 'Shivam Mavi','MM Sharma'
+    'DA Miller','Subhman Gill', 'MS Wade','WP Saha','0','KS Williamson','A Manohar', 'B Sai Sudharsan',
+    '1','V Shankar','2','3','J Yadav','R Tewatia','Mohammed Shami','Kartik Tyagi','4','5','6','R Sai Kishore',
+    'UT Yadav','Rashid Khan',
+    '7','MM Sharma','8'
 ];
 export const gt_players_fullName = [
-    'Hardik Pandya (All Rounder)', 'Subhman Gill (Batsman)', 'David Miller (Batsman)', 'Abhinav Manohar (Batsman)', 'Sai Sudharsan (Batsman)',
-    'Wridhiman Saha (Wicket Keeper)', 'Mathew Wade (Batsman)', 'Rashid Khan (All Rounder)', 'Rahul Tewatia (Batsman)', 'Vijay Shankar (All Rounder)',
-    'Mohammed Shami (Bowler)', 'Alzari Joseph (Bowler)', 'Yash Dayal (Bowler)', 'Pravin Sangwan (Bowler)', 'Jayant Yadav (All Rounder)',
-    'Sai Kishore (Batsman)', 'Kane Williamson (Batsman)', 'Odean Smith (Bowler)', 'Kumar S Bharat (Wicket Keeper)', 'Shivam Mavi (Bowler)','Mohit Sharma (Bowler)'
+    'David Miller (Batsman)','Subhman Gill (Batsman)', 'Mathew Wade (Batsman)','Wridhiman Saha (Wicket Keeper)','Robin Minz (Batsman)',
+    'Kane Williamson (Batsman)','Abhinav Manohar (All Rounder)', 'Sai Sudharsan (Batsman)','Darshan Nalkande (All Rounder)','Vijay Shankar (All Rounder)',
+    'Azmatulla Omarzai (All Rounder)','Shahrukh Khan (All Rounder)','Jayant Yadav (Bowler)','Rahul Tewatia (Batsman)','Mohammed Shami (Bowler)','Kartik Tyagi (Bowler)',
+    'Sushant Mishra (Bowler)','Spencer Jhonson (Bowler)','Noor Ahmad (Bowler)','Sai Kishore (Bowler)','Umesh Yadav (Bowler)','Rashid Khan (Bowler)',
+    'Joshua Little (Bowler)','Mohit Sharma (Bowler)','Manav Suthar (Bowler)'
 ];
 export const rr_players = [
-    'SV Samson', 'JC Buttler', 'YBK Jaiswal', 'R Ashwin', 'T Boult',
-    'SO Hetmyer', 'D Padikkal', 'R Parag', 'KC Cariappa', 'Sandeep Sharma',
-    'YS Chahal', 'N Saini', 'OC McCoy', 'KR Sen', 'Kuldeep Yadav',
-    'JO Holder', 'A Zampa', 'KM Asif', 'M Ashwin'
+    'SV Samson', 'JC Buttler', 'SO Hetmyer','YBK Jaiswal','0','R Parag','1','2','3','4','5','R Ashwin','6', 'Avesh Khan'
+    ,'KR Sen','N Saini','M Prasidh Krishna','Sandeep Sharma','TA Boult',
+    'YS Chahal','A Zampa', '7'
 ];
 export const rr_players_fullName = [
-    'Sanju Samson (Wicket Keeper)', 'Josh Buttler (Wicket Keeper)', 'Yashsvi Jaiswal (Batsman)', 'Ravichandra Ashwin (All Rounder)', 'Trent Boult (Bowler)',
-    'Shimron Hetmyer (Batsman)', 'Devadat Padikkal (Batsman)', 'Riyan Parag (Batsman)', 'Kodandera Cariappa (Bowler)', 'Sandeep Sharma (Bowler)',
-    'Yuzvendra Chahal (Bowler)', 'Navdeep Saini (Bowler)', 'Obed McCoy (Bowler)', 'Kuldeep Sen (Bowler)', 'Kuldeep Yadav (Bowler)',
-    'Jason Holder (All Rounder)', 'Adam Zampa (Bowler)', 'Mohhamad Asif (Bowler)', 'Murgan Ashwin (Bowler)'
+    'Sanju Samson (Wicket Keeper)', 'Josh Buttler (Wicket Keeper)', 'Shimron Hetmyer (Batsman)','Yashsvi Jaiswal (Batsman)',
+    'Dhruv Jurel (Batsman)', 'Riyan Parag (Batsman)', 'Kunal Rathode (Batsman)','Donavan Ferrerira (Batsman)','Rovman Powell (Batsman)',
+    'Shubham Dubey (Batsman)','Tom Kohler Cadmore (Batsman)','Ravichandra Ashwin (All Rounder)','Abid Mushtaq (All Rounder)',
+    'Avesh Khan (Bowler)','Kuldeep Sen (Bowler)','Navdeep Saini (Bowler)','Prashidh Krishna (Bowler)','Sandeep Sharma (Bowler)','Trent Boult (Bowler)',
+    'Yuzvendra Chahal (Bowler)','Adam Zampa (Bowler)', 'Nandre Burger (Bowler)'
 ];
 export const srh_players = [
-    'Abdul Samad', 'Umran Malik', 'Washington Sundar', 'RA Tripathi', 'Abhishek Sharma',
-    'Kartik Tyagi', 'T Natarajan', 'B Kumar', 'AK Markram', 'M Jansen',
-    'GD Phillips', 'Fazalhaq Farooqi', 'MA Agarwal', 'H Klaasen', 'AU Rashid',
-    'M Markande', 'Anmolpreet Singh'
+    'Abdul Samad', 'AK Markram', 'RA Tripathi','GD Phillips','MA Agarwal','H Klaasen','Anmolpreet Singh',
+    '0','1','2','Abhishek Sharma','M Jansen','Washington Sundar','3','4','5',
+    '6','Shahbaz Ahmed','B Kumar','Fazalhaq Farooqi', 'JD Unadkat','T Natarajan','Umran Malik',
+    'M Markande', 'PJ Cummins'
 ];
 export const srh_players_fullName = [
-    'Abdul Samad (Batsman)', 'Umran Malik (Bowler)', 'Washington Sundar (All Rounder)', 'Rahul Tripathi (Batsman)', 'Abhishek Sharma (Batsman)',
-    'Kartik Tyagi (Bowler)', 'Thangarasu Natarajan (Bowler)', 'Bhuvaneshwar Kumar (Bowler)', 'Aiden Markram (Batsman)', 'Marco Jansen (All Rounder)',
-    'Glenn Phillips (Wicket Keeper)', 'Fazalhaq Farooqi (Bowler)', 'Mayank Agarwal (Batsman)', 'Henrich Klaasen (Wicket Keeper)', 'Adil Rashid (Bowler)',
-    'Mayank Markande (Bowler)', 'Anmolpreet Singh (Bowler)'
+    'Abdul Samad (Batsman)','Aiden Markram (Batsman)','Rahul Tripathi (Batsman)','Glenn Phillips (Wicket Keeper)',
+    'Mayank Agarwal (Batsman)','Henrich Klaasen (Wicket Keeper)','Anmolpreet Singh (Batsman)','Upandra Singh (Batsman)','Nitesh Reddy (Batsman)','Travis Head (Batsman)',
+    'Abhishek Sharma (Batsman)','Marco Jansen (All Rounder)','Washington Sundar (All Rounder)','Sanvir Singh (All Rounder)','Wanindu Hasranga (All Rounder)',
+    'Jhathavededha Subramanyan (Bowler)','Akash Singh (Bowler)','Shahbaz Ahamad (Bowler)','Bhuvneshwar Kumar (Bowler)','Fazalhaq Farooqi (Bowler)','Jaydev Unadkat (Bowler)',
+    'Thangarasu Natarajan (Bowler)','Umran Malik (Bowler)',
+    'Mayank Markande (Bowler)','Pat Cummins (Bowler)'
 ];
 export const pk_players = [
-    'Arshdeep Singh', 'S Dhawan', 'K Rabada', 'DJM Short', 'SN Khan',
-    'Harpreet Brar', 'P Simran Singh', 'JM Sharma', 'RD Chahar', 'LS Livingstone',
-    'R Dhawan', 'NT Ellis', 'PBB Rajapaksa', 'SM Curren'
+    'S Dhawan','JM Sharma','JM Bairstow','P Simran Singh','LS Livingstone',
+    '0','1','2','CR Woakes','3','4','5','R Dhawan','SM Curren','6','7','8',
+    'Harpreet Brar','Arshdeep Singh','K Rabada','NT Ellis','RD Chahar',
+    '9','HV Patel'
 ];
 export const pk_players_fullName = [
-    'Arshdeep Singh (Bowler)', 'Shikhar Dhawan (Batsman)', 'Kagiso Rabada (Bowler)', 'DArcy Short (Batsman)', 'Sharukh Khan (Batsman)',
-    'Harpreet Brar (Batsman)', 'Simran Singh (Batsman)', 'Jithesh Sharma (Wicket Keeper)', 'Rahul Chahar (Bowler)', 'Liam Livingstone (Batsman)',
-    'Rishi Dhawan (Bowler)', 'Nathan Ellis (Bowler)', 'P Rajapaksa (Batsman)', 'Sam Curren (All Rounder)'
+    'Shikhar Dhawan (Batsman)','Jithesh Sharma (Wicket Keeper)','Jonny Bairstow (Batsman)',
+    'Simran Singh (Batsman)','Liam Livingstone (Batsman)','Harpreet Bhatiya (Batsman)','Rillee Rossouw (Batsman)','Shashank Singh (Batsman)',
+    'Chirs Woakes (All Rounder)','Vishwanath Singh (All Rounder)','Ashutosh Sharma (All Rounder)',
+    'Atharva Taide (All Rounder)','Rishi Dhawan (All Rounder)','Sam Curren (All Rounder)',
+    'Sikandar Raza (All Rounder)','Shivam Singh (All Rounder)','Prince Choudhary (Bowler)',
+    'Harpreet Brar (Bowler)','Arshdeep Singh (Bowler)','Kagiso Rabada (Bowler)','Nathan Ellis (Bowler)',
+    'Rahul Chahar (Bowler)','Vidwath Kaverappa (Bowler)','Harshal Patel (Bowler)'
 ];
 export const lsg_players = [
-    'KL Rahul', 'A Badoni', 'MP Stoinis', 'R Bishnoi', 'Q de Kock',
-    'DJ Hooda', 'KH Pandya', 'Avesh Khan', 'MA Wood', 'K Gowtham',
-    'M Vohra', 'Mohsin Khan', 'KS Sharma', 'N Pooran', 'R Shepherd',
-    'DR Sams', 'PN Mankad', 'Swapnil Singh'
+    'KL Rahul','D Padikkal','Q de Kock', 'N Pooran','0','A Badoni','DJ Hooda','K Gowtham',
+    'KH Pandya','1','MP Stoinis','2','PN Mankad','3','4','DJ Willey','Shivam Mavi','5',
+    '6','Mohsin Khan','R Bishnoi','7',
+     'A Mishra','8','9'
 ];
 export const lsg_players_fullName = [
-    'Lokesh Rahul (Wicket Keeper)', 'Aayush Badoni (Batsman)', 'Marcus Stoinis (All Rounder)', 'Ravi Bishnoi (Bowler)', 'Quinton de Kock (Wicket Keeper)',
-    'Deepak Hooda (Batsman)', 'Krunal Pandya (All Rounder)', 'Avesh Khan (Bowler)', 'Mark Wood (Bowler)', 'Krishnappa Gowtham (All Rounder)',
-    'Manan Vohra (Batsman)', 'Mohsin Khan (Bowler)', 'K Sharma (Bowler)', 'Nicolos Pooran (Batsman)', 'Romario Shepherd (All Rounder)',
-    'Danial Sams (Bowler)', 'Prerak Mankad (Batsman)', 'Swapnil Singh (Bowler)'
+    'Lokesh Rahul (Wicket Keeper)','Devdutt Padikkal (Batsman)', 'Quinton de Kock (Wicket Keeper)','Nicolos Pooran (Batsman)',
+    'Ashton Turner (Batsman)', 'Aayush Badoni (All Rounder)','Deepak Hooda (All Rounder)','Krishnappa Gowtham (All Rounder)',
+    'Krunal Pandya (All Rounder)','Kle Mayers (All Rounder)','Marcus Stoinis (All Rounder)', 'Mohd Arshad Khan (All Rounder)',
+    'Prerak Mankad (All Rounder)','Yudhvir Singh (All Rounder)','Arshin Kulkani (All Rounder)','David Willey (All Rounder)',
+    'Shivam Mavi (Bowler)','Shamar Josheph (Bowler)','Mayank Yadav (Bowler)','Mohsin Khan (Bowler)',
+    'Ravi Bishnoi (Bowler)', 'Yash Thakur (Bowler)','Amit Mishra (Bowler)','Naveen ul Haq (Bowler)',
+    'M. Siddharth (Bowler)'
 ];

@@ -11,10 +11,12 @@ import gt from '../Images/gt.png'
 import pk from '../Images/pk.png'
 import rr from '../Images/rr.png'
 import srh from '../Images/srh.png'
+import vs from '../Images/versus-final.png'
 
 export default function Result(props) {
-    let perc1 = props.percentage1.toFixed(2)*100;
-    let perc2 = props.percentage2.toFixed(2)*100;
+    let perc1 = Math.round(props.percentage1.toFixed(2) * 100);
+    let perc2 = Math.round(props.percentage2.toFixed(2) * 100);
+
     return (
         <div className='main-result'>
             <div className='result-img'>
@@ -52,7 +54,7 @@ export default function Result(props) {
                 </div>
             </div>
             <div className='result-vs'>
-                V/S
+                <img src={vs}/>
             </div>
             <div className='result'>
                 <div className='result-bar'>
